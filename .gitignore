@@ -1,0 +1,12 @@
+work/
+.venv/
+__pycache__/
+*.pyc
+.env*
+data/raw/
+*.duckdb*
+credentials*.json
+service-account*.json
+dist/
+test-results/
+outputs/*.zip

@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "checks": [
+    "desktop/overview: rendered without document overflow",
+    "desktop/retention: rendered without document overflow",
+    "desktop/opportunities: rendered without document overflow",
+    "desktop/experiment: rendered without document overflow",
+    "desktop/quality: rendered without document overflow",
+    "desktop/methodology: rendered without document overflow",
+    "mobile/overview: rendered without document overflow",
+    "mobile/retention: rendered without document overflow",
+    "mobile/opportunities: rendered without document overflow",
+    "mobile/experiment: rendered without document overflow",
+    "mobile/quality: rendered without document overflow",
+    "mobile/methodology: rendered without document overflow",
+    "Intersected filters and keyboard focus: passed",
+    "Calculator agrees with Python; sensitivity and invalid-input states passed",
+    "Local artifact links return HTTP 200",
+    "Empty filter population shows an explicit empty state",
+    "Enlarged text: no document overflow"
+  ],
+  "console_errors": []
+}

@@ -1,0 +1,2117 @@
+{
+  "title": "Product Funnel & Retention Observatory",
+  "source": "synthetic fixture",
+  "window": {
+    "start": "2020-11-01",
+    "end_exclusive": "2021-02-01",
+    "timezone": "UTC"
+  },
+  "input_sha256": "4ae5b2ade30c5977cc7e01cf7de14d795b5abddb9af46e88d973cb6d1a244909",
+  "devices": [
+    "Unknown",
+    "desktop",
+    "mobile",
+    "tablet"
+  ],
+  "channels": [
+    "Direct",
+    "Email",
+    "Organic search",
+    "Paid search",
+    "Unknown"
+  ],
+  "funnels": [
+    {
+      "mode": "session",
+      "device": "All",
+      "channel": "All",
+      "counts": [
+        1708,
+        808,
+        516,
+        323
+      ],
+      "n": 1708,
+      "k": 323,
+      "rate": 0.18911007025761123,
+      "ci": [
+        0.17108294930875576,
+        0.2063854047890536
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "All",
+      "channel": "Direct",
+      "counts": [
+        298,
+        143,
+        82,
+        51
+      ],
+      "n": 298,
+      "k": 51,
+      "rate": 0.17114093959731544,
+      "ci": [
+        0.13058419243986255,
+        0.2152777777777778
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "All",
+      "channel": "Email",
+      "counts": [
+        333,
+        165,
+        105,
+        72
+      ],
+      "n": 333,
+      "k": 72,
+      "rate": 0.21621621621621623,
+      "ci": [
+        0.17964071856287425,
+        0.25609756097560976
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "All",
+      "channel": "Organic search",
+      "counts": [
+        379,
+        165,
+        117,
+        67
+      ],
+      "n": 379,
+      "k": 67,
+      "rate": 0.17678100263852242,
+      "ci": [
+        0.13978494623655913,
+        0.2144702842377261
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "All",
+      "channel": "Paid search",
+      "counts": [
+        352,
+        183,
+        128,
+        85
+      ],
+      "n": 352,
+      "k": 85,
+      "rate": 0.24147727272727273,
+      "ci": [
+        0.18950437317784258,
+        0.29178470254957506
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "All",
+      "channel": "Unknown",
+      "counts": [
+        346,
+        152,
+        84,
+        48
+      ],
+      "n": 346,
+      "k": 48,
+      "rate": 0.13872832369942195,
+      "ci": [
+        0.1069364161849711,
+        0.17231638418079095
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "Unknown",
+      "channel": "All",
+      "counts": [
+        40,
+        17,
+        6,
+        3
+      ],
+      "n": 40,
+      "k": 3,
+      "rate": 0.075,
+      "ci": [
+        0.0,
+        0.15789473684210525
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "Unknown",
+      "channel": "Direct",
+      "counts": [
+        7,
+        1,
+        0,
+        0
+      ],
+      "n": 7,
+      "k": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "Unknown",
+      "channel": "Email",
+      "counts": [
+        7,
+        4,
+        2,
+        1
+      ],
+      "n": 7,
+      "k": 1,
+      "rate": 0.14285714285714285,
+      "ci": [
+        0.0,
+        0.375
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "Unknown",
+      "channel": "Organic search",
+      "counts": [
+        12,
+        7,
+        2,
+        1
+      ],
+      "n": 12,
+      "k": 1,
+      "rate": 0.08333333333333333,
+      "ci": [
+        0.0,
+        0.3
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "Unknown",
+      "channel": "Paid search",
+      "counts": [
+        5,
+        1,
+        0,
+        0
+      ],
+      "n": 5,
+      "k": 0,
+      "rate": 0.0,
+      "ci": [
+        0.0,
+        0.0
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "Unknown",
+      "channel": "Unknown",
+      "counts": [
+        9,
+        4,
+        2,
+        1
+      ],
+      "n": 9,
+      "k": 1,
+      "rate": 0.1111111111111111,
+      "ci": [
+        0.0,
+        0.375
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "desktop",
+      "channel": "All",
+      "counts": [
+        741,
+        410,
+        265,
+        162
+      ],
+      "n": 741,
+      "k": 162,
+      "rate": 0.21862348178137653,
+      "ci": [
+        0.19225449515905949,
+        0.2503419972640219
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "desktop",
+      "channel": "Direct",
+      "counts": [
+        131,
+        85,
+        48,
+        32
+      ],
+      "n": 131,
+      "k": 32,
+      "rate": 0.24427480916030533,
+      "ci": [
+        0.1732283464566929,
+        0.31851851851851853
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "desktop",
+      "channel": "Email",
+      "counts": [
+        151,
+        87,
+        59,
+        38
+      ],
+      "n": 151,
+      "k": 38,
+      "rate": 0.25165562913907286,
+      "ci": [
+        0.1830065359477124,
+        0.32
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "desktop",
+      "channel": "Organic search",
+      "counts": [
+        165,
+        79,
+        62,
+        35
+      ],
+      "n": 165,
+      "k": 35,
+      "rate": 0.21212121212121213,
+      "ci": [
+        0.14935064935064934,
+        0.28104575163398693
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "desktop",
+      "channel": "Paid search",
+      "counts": [
+        158,
+        87,
+        60,
+        41
+      ],
+      "n": 158,
+      "k": 41,
+      "rate": 0.25949367088607594,
+      "ci": [
+        0.17532467532467533,
+        0.3313253012048193
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "desktop",
+      "channel": "Unknown",
+      "counts": [
+        136,
+        72,
+        36,
+        16
+      ],
+      "n": 136,
+      "k": 16,
+      "rate": 0.11764705882352941,
+      "ci": [
+        0.06756756756756757,
+        0.1732283464566929
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "mobile",
+      "channel": "All",
+      "counts": [
+        841,
+        343,
+        221,
+        142
+      ],
+      "n": 841,
+      "k": 142,
+      "rate": 0.16884661117717004,
+      "ci": [
+        0.1452991452991453,
+        0.1951219512195122
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "mobile",
+      "channel": "Direct",
+      "counts": [
+        152,
+        55,
+        33,
+        18
+      ],
+      "n": 152,
+      "k": 18,
+      "rate": 0.11842105263157894,
+      "ci": [
+        0.06918238993710692,
+        0.17333333333333334
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "mobile",
+      "channel": "Email",
+      "counts": [
+        159,
+        68,
+        38,
+        29
+      ],
+      "n": 159,
+      "k": 29,
+      "rate": 0.18238993710691823,
+      "ci": [
+        0.13218390804597702,
+        0.24074074074074073
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "mobile",
+      "channel": "Organic search",
+      "counts": [
+        179,
+        70,
+        46,
+        26
+      ],
+      "n": 179,
+      "k": 26,
+      "rate": 0.1452513966480447,
+      "ci": [
+        0.09659090909090909,
+        0.19318181818181818
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "mobile",
+      "channel": "Paid search",
+      "counts": [
+        167,
+        83,
+        61,
+        39
+      ],
+      "n": 167,
+      "k": 39,
+      "rate": 0.23353293413173654,
+      "ci": [
+        0.16149068322981366,
+        0.3081395348837209
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "mobile",
+      "channel": "Unknown",
+      "counts": [
+        184,
+        67,
+        43,
+        30
+      ],
+      "n": 184,
+      "k": 30,
+      "rate": 0.16304347826086957,
+      "ci": [
+        0.11413043478260869,
+        0.21195652173913043
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "tablet",
+      "channel": "All",
+      "counts": [
+        86,
+        38,
+        24,
+        16
+      ],
+      "n": 86,
+      "k": 16,
+      "rate": 0.18604651162790697,
+      "ci": [
+        0.10989010989010989,
+        0.2558139534883721
+      ],
+      "small": false
+    },
+    {
+      "mode": "session",
+      "device": "tablet",
+      "channel": "Direct",
+      "counts": [
+        8,
+        2,
+        1,
+        1
+      ],
+      "n": 8,
+      "k": 1,
+      "rate": 0.125,
+      "ci": [
+        0.0,
+        0.42857142857142855
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "tablet",
+      "channel": "Email",
+      "counts": [
+        16,
+        6,
+        6,
+        4
+      ],
+      "n": 16,
+      "k": 4,
+      "rate": 0.25,
+      "ci": [
+        0.07142857142857142,
+        0.4117647058823529
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "tablet",
+      "channel": "Organic search",
+      "counts": [
+        23,
+        9,
+        7,
+        5
+      ],
+      "n": 23,
+      "k": 5,
+      "rate": 0.21739130434782608,
+      "ci": [
+        0.05,
+        0.38461538461538464
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "tablet",
+      "channel": "Paid search",
+      "counts": [
+        22,
+        12,
+        7,
+        5
+      ],
+      "n": 22,
+      "k": 5,
+      "rate": 0.22727272727272727,
+      "ci": [
+        0.05263157894736842,
+        0.38461538461538464
+      ],
+      "small": true
+    },
+    {
+      "mode": "session",
+      "device": "tablet",
+      "channel": "Unknown",
+      "counts": [
+        17,
+        9,
+        3,
+        1
+      ],
+      "n": 17,
+      "k": 1,
+      "rate": 0.058823529411764705,
+      "ci": [
+        0.0,
+        0.17647058823529413
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "All",
+      "channel": "All",
+      "counts": [
+        1118,
+        589,
+        401,
+        270
+      ],
+      "n": 1118,
+      "k": 270,
+      "rate": 0.24150268336314848,
+      "ci": [
+        0.217327243558298,
+        0.267448438909698
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "All",
+      "channel": "Direct",
+      "counts": [
+        192,
+        105,
+        66,
+        45
+      ],
+      "n": 192,
+      "k": 45,
+      "rate": 0.234375,
+      "ci": [
+        0.18002895821580786,
+        0.2991415881321553
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "All",
+      "channel": "Email",
+      "counts": [
+        219,
+        123,
+        83,
+        62
+      ],
+      "n": 219,
+      "k": 62,
+      "rate": 0.2831050228310502,
+      "ci": [
+        0.2275763399936986,
+        0.346111606123903
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "All",
+      "channel": "Organic search",
+      "counts": [
+        246,
+        123,
+        94,
+        57
+      ],
+      "n": 246,
+      "k": 57,
+      "rate": 0.23170731707317074,
+      "ci": [
+        0.18335234553360286,
+        0.28831260301789613
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "All",
+      "channel": "Paid search",
+      "counts": [
+        238,
+        125,
+        96,
+        68
+      ],
+      "n": 238,
+      "k": 68,
+      "rate": 0.2857142857142857,
+      "ci": [
+        0.23208069043264634,
+        0.34615539655843997
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "All",
+      "channel": "Unknown",
+      "counts": [
+        223,
+        113,
+        62,
+        38
+      ],
+      "n": 223,
+      "k": 38,
+      "rate": 0.17040358744394618,
+      "ci": [
+        0.12673957236162345,
+        0.22523073869075108
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "Unknown",
+      "channel": "All",
+      "counts": [
+        28,
+        12,
+        6,
+        3
+      ],
+      "n": 28,
+      "k": 3,
+      "rate": 0.10714285714285714,
+      "ci": [
+        0.03711836682930002,
+        0.2719585154867215
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "Unknown",
+      "channel": "Direct",
+      "counts": [
+        5,
+        1,
+        0,
+        0
+      ],
+      "n": 5,
+      "k": 0,
+      "rate": 0.0,
+      "ci": [
+        2.7755575615628914e-17,
+        0.43448246478317465
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "Unknown",
+      "channel": "Email",
+      "counts": [
+        4,
+        2,
+        1,
+        0
+      ],
+      "n": 4,
+      "k": 0,
+      "rate": 0.0,
+      "ci": [
+        0,
+        0.4898908364545972
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "Unknown",
+      "channel": "Organic search",
+      "counts": [
+        8,
+        4,
+        2,
+        1
+      ],
+      "n": 8,
+      "k": 1,
+      "rate": 0.125,
+      "ci": [
+        0.02241749145005667,
+        0.47088818221285345
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "Unknown",
+      "channel": "Paid search",
+      "counts": [
+        4,
+        1,
+        1,
+        1
+      ],
+      "n": 4,
+      "k": 1,
+      "rate": 0.25,
+      "ci": [
+        0.0455872608097006,
+        0.699358157417598
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "Unknown",
+      "channel": "Unknown",
+      "counts": [
+        7,
+        4,
+        2,
+        1
+      ],
+      "n": 7,
+      "k": 1,
+      "rate": 0.14285714285714285,
+      "ci": [
+        0.02567962434474355,
+        0.5131278292743188
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "desktop",
+      "channel": "All",
+      "counts": [
+        496,
+        290,
+        205,
+        133
+      ],
+      "n": 496,
+      "k": 133,
+      "rate": 0.26814516129032256,
+      "ci": [
+        0.23105064487103985,
+        0.30880345098036704
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "desktop",
+      "channel": "Direct",
+      "counts": [
+        87,
+        62,
+        41,
+        28
+      ],
+      "n": 87,
+      "k": 28,
+      "rate": 0.3218390804597701,
+      "ci": [
+        0.2330072138814503,
+        0.42573890928254654
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "desktop",
+      "channel": "Email",
+      "counts": [
+        100,
+        60,
+        45,
+        32
+      ],
+      "n": 100,
+      "k": 32,
+      "rate": 0.32,
+      "ci": [
+        0.23669147324999096,
+        0.41662618610452384
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "desktop",
+      "channel": "Organic search",
+      "counts": [
+        109,
+        61,
+        50,
+        30
+      ],
+      "n": 109,
+      "k": 30,
+      "rate": 0.27522935779816515,
+      "ci": [
+        0.20012023356731107,
+        0.36564220417411036
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "desktop",
+      "channel": "Paid search",
+      "counts": [
+        105,
+        56,
+        44,
+        31
+      ],
+      "n": 105,
+      "k": 31,
+      "rate": 0.29523809523809524,
+      "ci": [
+        0.21646522851654953,
+        0.38846472679727645
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "desktop",
+      "channel": "Unknown",
+      "counts": [
+        95,
+        51,
+        25,
+        12
+      ],
+      "n": 95,
+      "k": 12,
+      "rate": 0.12631578947368421,
+      "ci": [
+        0.07375654198137559,
+        0.2079214011902305
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "mobile",
+      "channel": "All",
+      "counts": [
+        542,
+        262,
+        173,
+        122
+      ],
+      "n": 542,
+      "k": 122,
+      "rate": 0.22509225092250923,
+      "ci": [
+        0.1919371367560006,
+        0.2621167919363392
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "mobile",
+      "channel": "Direct",
+      "counts": [
+        96,
+        40,
+        24,
+        16
+      ],
+      "n": 96,
+      "k": 16,
+      "rate": 0.16666666666666666,
+      "ci": [
+        0.10527382371950138,
+        0.25370990151894907
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "mobile",
+      "channel": "Email",
+      "counts": [
+        105,
+        57,
+        33,
+        27
+      ],
+      "n": 105,
+      "k": 27,
+      "rate": 0.2571428571428571,
+      "ci": [
+        0.18315909307507205,
+        0.34826945857620983
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "mobile",
+      "channel": "Organic search",
+      "counts": [
+        116,
+        52,
+        36,
+        22
+      ],
+      "n": 116,
+      "k": 22,
+      "rate": 0.1896551724137931,
+      "ci": [
+        0.1287138187080361,
+        0.2704924267055327
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "mobile",
+      "channel": "Paid search",
+      "counts": [
+        115,
+        62,
+        48,
+        34
+      ],
+      "n": 115,
+      "k": 34,
+      "rate": 0.2956521739130435,
+      "ci": [
+        0.21994782436975097,
+        0.3845672963095335
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "mobile",
+      "channel": "Unknown",
+      "counts": [
+        110,
+        51,
+        32,
+        23
+      ],
+      "n": 110,
+      "k": 23,
+      "rate": 0.20909090909090908,
+      "ci": [
+        0.1435637086213301,
+        0.29425094464305634
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "tablet",
+      "channel": "All",
+      "counts": [
+        52,
+        25,
+        17,
+        12
+      ],
+      "n": 52,
+      "k": 12,
+      "rate": 0.23076923076923078,
+      "ci": [
+        0.13724260925492748,
+        0.3613378255809983
+      ],
+      "small": false
+    },
+    {
+      "mode": "user",
+      "device": "tablet",
+      "channel": "Direct",
+      "counts": [
+        4,
+        2,
+        1,
+        1
+      ],
+      "n": 4,
+      "k": 1,
+      "rate": 0.25,
+      "ci": [
+        0.0455872608097006,
+        0.699358157417598
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "tablet",
+      "channel": "Email",
+      "counts": [
+        10,
+        4,
+        4,
+        3
+      ],
+      "n": 10,
+      "k": 3,
+      "rate": 0.3,
+      "ci": [
+        0.10779126740630102,
+        0.6032218525388546
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "tablet",
+      "channel": "Organic search",
+      "counts": [
+        13,
+        6,
+        6,
+        4
+      ],
+      "n": 13,
+      "k": 4,
+      "rate": 0.3076923076923077,
+      "ci": [
+        0.12680703655710515,
+        0.5763065681945096
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "tablet",
+      "channel": "Paid search",
+      "counts": [
+        14,
+        6,
+        3,
+        2
+      ],
+      "n": 14,
+      "k": 2,
+      "rate": 0.14285714285714285,
+      "ci": [
+        0.04009392127146494,
+        0.3994137949697035
+      ],
+      "small": true
+    },
+    {
+      "mode": "user",
+      "device": "tablet",
+      "channel": "Unknown",
+      "counts": [
+        11,
+        7,
+        3,
+        2
+      ],
+      "n": 11,
+      "k": 2,
+      "rate": 0.18181818181818182,
+      "ci": [
+        0.051367689746085105,
+        0.47698056196084415
+      ],
+      "small": true
+    }
+  ],
+  "cohorts": [
+    {
+      "cohort": "2020-10-26",
+      "week": 1,
+      "n": 12,
+      "k": 5,
+      "rate": 0.4166666666666667,
+      "ci": [
+        0.19326031365875668,
+        0.6804886874504503
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-10-26",
+      "week": 2,
+      "n": 12,
+      "k": 0,
+      "rate": 0.0,
+      "ci": [
+        0,
+        0.2424940066552408
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-10-26",
+      "week": 3,
+      "n": 12,
+      "k": 4,
+      "rate": 0.3333333333333333,
+      "ci": [
+        0.1381200910912132,
+        0.6093779111272004
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-10-26",
+      "week": 4,
+      "n": 12,
+      "k": 1,
+      "rate": 0.08333333333333333,
+      "ci": [
+        0.014865094404917123,
+        0.3538799111411169
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-02",
+      "week": 1,
+      "n": 94,
+      "k": 42,
+      "rate": 0.44680851063829785,
+      "ci": [
+        0.35036370133657346,
+        0.5474301365667823
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-02",
+      "week": 2,
+      "n": 94,
+      "k": 7,
+      "rate": 0.07446808510638298,
+      "ci": [
+        0.03653858086656638,
+        0.14581212236028016
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-02",
+      "week": 3,
+      "n": 94,
+      "k": 9,
+      "rate": 0.09574468085106383,
+      "ci": [
+        0.05119196076308952,
+        0.1720412073024147
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-02",
+      "week": 4,
+      "n": 94,
+      "k": 5,
+      "rate": 0.05319148936170213,
+      "ci": [
+        0.022931748685590017,
+        0.11853648970259888
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-09",
+      "week": 1,
+      "n": 88,
+      "k": 38,
+      "rate": 0.4318181818181818,
+      "ci": [
+        0.33332677056322896,
+        0.5360132839819836
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-09",
+      "week": 2,
+      "n": 88,
+      "k": 2,
+      "rate": 0.022727272727272728,
+      "ci": [
+        0.006254928263812166,
+        0.07912545355267583
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-09",
+      "week": 3,
+      "n": 88,
+      "k": 7,
+      "rate": 0.07954545454545454,
+      "ci": [
+        0.03906485712225406,
+        0.15519881257322343
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-09",
+      "week": 4,
+      "n": 88,
+      "k": 4,
+      "rate": 0.045454545454545456,
+      "ci": [
+        0.017816249235907265,
+        0.11111744773217655
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-16",
+      "week": 1,
+      "n": 97,
+      "k": 32,
+      "rate": 0.32989690721649484,
+      "ci": [
+        0.24438091722640706,
+        0.4283727261071627
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-16",
+      "week": 2,
+      "n": 97,
+      "k": 11,
+      "rate": 0.1134020618556701,
+      "ci": [
+        0.0645135810293563,
+        0.1917446992742115
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-16",
+      "week": 3,
+      "n": 97,
+      "k": 7,
+      "rate": 0.07216494845360824,
+      "ci": [
+        0.03539415830866491,
+        0.14153167189395008
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-16",
+      "week": 4,
+      "n": 97,
+      "k": 5,
+      "rate": 0.05154639175257732,
+      "ci": [
+        0.0222160510375106,
+        0.11504355411462802
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-23",
+      "week": 1,
+      "n": 99,
+      "k": 36,
+      "rate": 0.36363636363636365,
+      "ci": [
+        0.2756189558785466,
+        0.4618410110490428
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-23",
+      "week": 2,
+      "n": 99,
+      "k": 5,
+      "rate": 0.050505050505050504,
+      "ci": [
+        0.021763234491416865,
+        0.11282702686248855
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-23",
+      "week": 3,
+      "n": 99,
+      "k": 12,
+      "rate": 0.12121212121212122,
+      "ci": [
+        0.07071551497720936,
+        0.20000661537720532
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-23",
+      "week": 4,
+      "n": 99,
+      "k": 11,
+      "rate": 0.1111111111111111,
+      "ci": [
+        0.06318563453857473,
+        0.18808908595862434
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-30",
+      "week": 1,
+      "n": 90,
+      "k": 27,
+      "rate": 0.3,
+      "ci": [
+        0.21510914497726974,
+        0.40126510524846093
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-30",
+      "week": 2,
+      "n": 90,
+      "k": 2,
+      "rate": 0.022222222222222223,
+      "ci": [
+        0.006115441986325215,
+        0.07744526688625371
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-30",
+      "week": 3,
+      "n": 90,
+      "k": 8,
+      "rate": 0.08888888888888889,
+      "ci": [
+        0.04573049253679449,
+        0.16570546626054086
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-11-30",
+      "week": 4,
+      "n": 90,
+      "k": 7,
+      "rate": 0.07777777777777778,
+      "ci": [
+        0.038184815317289005,
+        0.15193860182592026
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-07",
+      "week": 1,
+      "n": 107,
+      "k": 44,
+      "rate": 0.411214953271028,
+      "ci": [
+        0.3226373079367236,
+        0.5059466875993158
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-07",
+      "week": 2,
+      "n": 107,
+      "k": 10,
+      "rate": 0.09345794392523364,
+      "ci": [
+        0.05155826621850421,
+        0.16353687123599236
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-07",
+      "week": 3,
+      "n": 107,
+      "k": 5,
+      "rate": 0.04672897196261682,
+      "ci": [
+        0.02012265720535792,
+        0.10475353053126468
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-07",
+      "week": 4,
+      "n": 107,
+      "k": 4,
+      "rate": 0.037383177570093455,
+      "ci": [
+        0.01463189926952592,
+        0.0922004985235219
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-14",
+      "week": 1,
+      "n": 97,
+      "k": 39,
+      "rate": 0.4020618556701031,
+      "ci": [
+        0.31002196601656606,
+        0.5015634649936711
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-14",
+      "week": 2,
+      "n": 97,
+      "k": 7,
+      "rate": 0.07216494845360824,
+      "ci": [
+        0.03539415830866491,
+        0.14153167189395008
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-14",
+      "week": 3,
+      "n": 97,
+      "k": 5,
+      "rate": 0.05154639175257732,
+      "ci": [
+        0.0222160510375106,
+        0.11504355411462802
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-14",
+      "week": 4,
+      "n": 97,
+      "k": 6,
+      "rate": 0.061855670103092786,
+      "ci": [
+        0.028654885715718267,
+        0.12843783196165853
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-21",
+      "week": 1,
+      "n": 93,
+      "k": 31,
+      "rate": 0.3333333333333333,
+      "ci": [
+        0.24582386759676322,
+        0.4340652999404818
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-21",
+      "week": 2,
+      "n": 93,
+      "k": 2,
+      "rate": 0.021505376344086023,
+      "ci": [
+        0.0059174998084049815,
+        0.07505462634691143
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-21",
+      "week": 3,
+      "n": 93,
+      "k": 5,
+      "rate": 0.053763440860215055,
+      "ci": [
+        0.023180674253084205,
+        0.11974838721760414
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-21",
+      "week": 4,
+      "n": 93,
+      "k": 3,
+      "rate": 0.03225806451612903,
+      "ci": [
+        0.01103061281589205,
+        0.09059382511121503
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-28",
+      "week": 1,
+      "n": 72,
+      "k": 27,
+      "rate": 0.375,
+      "ci": [
+        0.2721917834183841,
+        0.4904710097307303
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-28",
+      "week": 2,
+      "n": 72,
+      "k": 3,
+      "rate": 0.041666666666666664,
+      "ci": [
+        0.014270807466925196,
+        0.11549276741316111
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-28",
+      "week": 3,
+      "n": 72,
+      "k": 7,
+      "rate": 0.09722222222222222,
+      "ci": [
+        0.047896319973655774,
+        0.18735045795126853
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2020-12-28",
+      "week": 4,
+      "n": 72,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-04",
+      "week": 1,
+      "n": 81,
+      "k": 25,
+      "rate": 0.30864197530864196,
+      "ci": [
+        0.21863206977106836,
+        0.4159805308265227
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2021-01-04",
+      "week": 2,
+      "n": 81,
+      "k": 6,
+      "rate": 0.07407407407407407,
+      "ci": [
+        0.034389630412381064,
+        0.15232873865967633
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2021-01-04",
+      "week": 3,
+      "n": 81,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-04",
+      "week": 4,
+      "n": 81,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-11",
+      "week": 1,
+      "n": 92,
+      "k": 35,
+      "rate": 0.3804347826086957,
+      "ci": [
+        0.2879115705983599,
+        0.4825426746655932
+      ],
+      "eligible": true
+    },
+    {
+      "cohort": "2021-01-11",
+      "week": 2,
+      "n": 92,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-11",
+      "week": 3,
+      "n": 92,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-11",
+      "week": 4,
+      "n": 92,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-18",
+      "week": 1,
+      "n": 96,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-18",
+      "week": 2,
+      "n": 96,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-18",
+      "week": 3,
+      "n": 96,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-18",
+      "week": 4,
+      "n": 96,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-25",
+      "week": 1,
+      "n": 82,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-25",
+      "week": 2,
+      "n": 82,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-25",
+      "week": 3,
+      "n": 82,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    },
+    {
+      "cohort": "2021-01-25",
+      "week": 4,
+      "n": 82,
+      "k": null,
+      "rate": null,
+      "ci": [
+        null,
+        null
+      ],
+      "eligible": false
+    }
+  ],
+  "repeat_purchase": {
+    "n": 277,
+    "k": 38,
+    "rate": 0.1371841155234657,
+    "ci": [
+      0.10160469776247638,
+      0.18268900714834185
+    ]
+  },
+  "quality": {
+    "raw_rows": 7165,
+    "in_window_rows": 7165,
+    "outside_utc_window": 0,
+    "modeled_events": 7165,
+    "missing_user": 1,
+    "missing_session": 3,
+    "repeated_session_parameter": 1,
+    "raw_purchases": 483,
+    "missing_transaction": 4,
+    "duplicate_purchases": 39,
+    "canonical_purchases": 440,
+    "conflicting_transactions": 0,
+    "raw_revenue_usd": 43127.0,
+    "canonical_revenue_usd": 39960.0,
+    "unknown_canonical_revenue": 0,
+    "immature_user_funnels": 82,
+    "sessions": 1825,
+    "users": 1200,
+    "source_counts": {
+      "add_to_cart": 808,
+      "begin_checkout": 633,
+      "page_view": 1708,
+      "purchase": 483,
+      "session_start": 1825,
+      "view_item": 1708
+    },
+    "model_counts": {
+      "add_to_cart": 808,
+      "begin_checkout": 633,
+      "page_view": 1708,
+      "purchase": 483,
+      "session_start": 1825,
+      "view_item": 1708
+    },
+    "reconciled": true
+  },
+  "comparisons": [
+    {
+      "dimension": "device",
+      "segment": "Unknown",
+      "n": 28,
+      "k": 3,
+      "rate": 0.10714285714285714,
+      "ci": [
+        0.03711836682930002,
+        0.2719585154867215
+      ],
+      "reference_n": 1090,
+      "reference_k": 267,
+      "small": true,
+      "difference": {
+        "estimate": -0.13781127129750986,
+        "ci": [
+          -0.21264607721619128,
+          0.028831020565794147
+        ]
+      }
+    },
+    {
+      "dimension": "device",
+      "segment": "desktop",
+      "n": 496,
+      "k": 133,
+      "rate": 0.26814516129032256,
+      "ci": [
+        0.23105064487103985,
+        0.30880345098036704
+      ],
+      "reference_n": 622,
+      "reference_k": 137,
+      "small": false,
+      "difference": {
+        "estimate": 0.04788792656363447,
+        "ci": [
+          -0.002587146394924411,
+          0.09889295991004796
+        ]
+      }
+    },
+    {
+      "dimension": "device",
+      "segment": "mobile",
+      "n": 542,
+      "k": 122,
+      "rate": 0.22509225092250923,
+      "ci": [
+        0.1919371367560006,
+        0.2621167919363392
+      ],
+      "reference_n": 576,
+      "reference_k": 148,
+      "small": false,
+      "difference": {
+        "estimate": -0.03185219352193519,
+        "ci": [
+          -0.08169169909705153,
+          0.018409347298344453
+        ]
+      }
+    },
+    {
+      "dimension": "device",
+      "segment": "tablet",
+      "n": 52,
+      "k": 12,
+      "rate": 0.23076923076923078,
+      "ci": [
+        0.13724260925492748,
+        0.3613378255809983
+      ],
+      "reference_n": 1066,
+      "reference_k": 258,
+      "small": false,
+      "difference": {
+        "estimate": -0.011257035647279534,
+        "ci": [
+          -0.1084950545511896,
+          0.12163767511083731
+        ]
+      }
+    },
+    {
+      "dimension": "channel",
+      "segment": "Direct",
+      "n": 192,
+      "k": 45,
+      "rate": 0.234375,
+      "ci": [
+        0.18002895821580786,
+        0.2991415881321553
+      ],
+      "reference_n": 926,
+      "reference_k": 225,
+      "small": false,
+      "difference": {
+        "estimate": -0.00860556155507558,
+        "ci": [
+          -0.07004047725774191,
+          0.06138227380734648
+        ]
+      }
+    },
+    {
+      "dimension": "channel",
+      "segment": "Email",
+      "n": 219,
+      "k": 62,
+      "rate": 0.2831050228310502,
+      "ci": [
+        0.2275763399936986,
+        0.346111606123903
+      ],
+      "reference_n": 899,
+      "reference_k": 208,
+      "small": false,
+      "difference": {
+        "estimate": 0.05173683595674544,
+        "ci": [
+          -0.010758395053099536,
+          0.12004625369401391
+        ]
+      }
+    },
+    {
+      "dimension": "channel",
+      "segment": "Organic search",
+      "n": 246,
+      "k": 57,
+      "rate": 0.23170731707317074,
+      "ci": [
+        0.18335234553360286,
+        0.28831260301789613
+      ],
+      "reference_n": 872,
+      "reference_k": 213,
+      "small": false,
+      "difference": {
+        "estimate": -0.012558737972700823,
+        "ci": [
+          -0.0692531948553213,
+          0.05030979817701797
+        ]
+      }
+    },
+    {
+      "dimension": "channel",
+      "segment": "Paid search",
+      "n": 238,
+      "k": 68,
+      "rate": 0.2857142857142857,
+      "ci": [
+        0.23208069043264634,
+        0.34615539655843997
+      ],
+      "reference_n": 880,
+      "reference_k": 202,
+      "small": false,
+      "difference": {
+        "estimate": 0.056168831168831146,
+        "ci": [
+          -0.004767450681774865,
+          0.12219396665924222
+        ]
+      }
+    },
+    {
+      "dimension": "channel",
+      "segment": "Unknown",
+      "n": 223,
+      "k": 38,
+      "rate": 0.17040358744394618,
+      "ci": [
+        0.12673957236162345,
+        0.22523073869075108
+      ],
+      "reference_n": 895,
+      "reference_k": 232,
+      "small": false,
+      "difference": {
+        "estimate": -0.08881428965102589,
+        "ci": [
+          -0.14161894173102518,
+          -0.027415534550456915
+        ]
+      }
+    }
+  ],
+  "hypotheses": [
+    {
+      "priority": 1,
+      "title": "Investigate the largest journey loss",
+      "evidence": "900 of 1,708 entrants do not reach add_to_cart in order within the same session.",
+      "action": "Audit view_item \u2192 add_to_cart event coverage, then review the interface for cost or action clarity.",
+      "falsifier": "The gap disappears after instrumentation repair or reflects low-intent browsing."
+    },
+    {
+      "priority": 2,
+      "title": "Check device-specific friction",
+      "evidence": "mobile: 122/542 mature viewers purchase within the ordered seven-day funnel.",
+      "action": "Stratify by acquisition and inspect page performance and cart usability before proposing a device-targeted test.",
+      "falsifier": "Within-channel gaps vanish, or page diagnostics show no device-specific friction."
+    },
+    {
+      "priority": 3,
+      "title": "Investigate reasons to return",
+      "evidence": "38/277 eligible first-observed buyers place another distinct order within 28 days.",
+      "action": "Interview returning and one-time buyers; test whether useful post-purchase guidance merits a later experiment.",
+      "falsifier": "Purchase cadence exceeds this observation window or obfuscation breaks identity continuity."
+    }
+  ],
+  "experiment": {
+    "per_arm": 2402,
+    "total": 4804,
+    "enrollment_days": 14,
+    "readout_days": 21,
+    "baseline": 0.15,
+    "absolute_mde": 0.03,
+    "alpha": 0.05,
+    "power": 0.8,
+    "daily_users": 500
+  },
+  "provenance": {
+    "dataset": "bigquery-public-data.ga4_obfuscated_sample_ecommerce",
+    "verified_on": "2026-09-23",
+    "source_url": "https://developers.google.com/analytics/bigquery/web-ecommerce-demo-dataset",
+    "cloud_query_executed": false,
+    "source_reconciliation": "generated fixture vs modeled aggregates"
+  }
+}
