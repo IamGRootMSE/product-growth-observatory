@@ -54,11 +54,12 @@ def main():
         page.goto(base+'#overview'); page.reload(); page.wait_for_selector('.empty')
         assert 'No eligible product viewers' in page.locator('.empty').inner_text()
         checks.append('Empty filter population shows an explicit empty state')
-        # 200% text enlargement at narrow desktop equivalent.
+        # Full-page 200% zoom equivalent: half the CSS viewport at double pixel density.
         page.unroute('**/data.json'); page.goto(base+'#overview');page.reload();page.wait_for_selector('.funnel-row')
-        page.set_viewport_size({'width':800,'height':900});page.add_style_tag(content='html{font-size:200%}')
-        assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
-        checks.append('Enlarged text: no document overflow')
+        zoom=browser.new_page(viewport={'width':720,'height':550},device_scale_factor=2)
+        zoom.goto(base); zoom.wait_for_selector('.funnel-row')
+        assert zoom.evaluate('devicePixelRatio === 2 && document.documentElement.scrollWidth <= innerWidth')
+        checks.append('200% full-page zoom equivalent: no document overflow')
         browser.close()
     server.shutdown()
     assert not errors,errors

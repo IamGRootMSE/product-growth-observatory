@@ -17,7 +17,7 @@
     "Calculator agrees with Python; sensitivity and invalid-input states passed",
     "Local artifact links return HTTP 200",
     "Empty filter population shows an explicit empty state",
-    "Enlarged text: no document overflow"
+    "200% full-page zoom equivalent: no document overflow"
   ],
   "console_errors": []
 }

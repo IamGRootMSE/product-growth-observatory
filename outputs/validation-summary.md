@@ -12,7 +12,7 @@ Run date: 2026-09-23. Source: **synthetic fixture only**.
 | JavaScript syntax | Node syntax check passed |
 | Desktop/mobile routes | Six routes each at 1440px and 390px; no document overflow |
 | Interactive controls | Device/channel intersection, scope, empty state and calculator passed |
-| Accessibility checks | Semantic labels and tables, keyboard focus, visible focus styles, enlarged-text overflow check; not a formal WCAG audit |
+| Accessibility checks | Semantic labels and tables, keyboard focus, visible focus styles, 200% full-page zoom equivalent; not a formal WCAG audit |
 | Browser console | No page errors |
 | Local links | Supporting artifact links return HTTP 200 |
 | Visual inspection | Desktop/mobile overview, desktop retention, mobile experiment reviewed from screenshots |
