@@ -1,22 +1,266 @@
-'use strict';
+"use strict";
 let data;
-const $=s=>document.querySelector(s);
-const fmt=n=>n==null?'—':n.toLocaleString('en-US');
-const pct=n=>n==null?'—':(100*n).toFixed(1)+'%';
-const pp=n=>n==null?'—':(n>=0?'+':'')+(n*100).toFixed(1)+' pp';
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const ci=v=>v[0]==null?'Unavailable':`${pct(v[0])}–${pct(v[1])}`;
-const total=mode=>data.funnels.find(f=>f.mode===mode&&f.device==='All'&&f.channel==='All');
-const title=(eyebrow,h,desc)=>`<div class="page-title"><div><p class="eyebrow">${eyebrow}</p><h1>${h}</h1><p class="lede">${desc}</p></div><div class="date">${esc(data.window.start)} — ${esc(data.window.end_exclusive)}<br>UTC · end exclusive</div></div>`;
-const stat=(label,value,detail)=>`<div class="stat"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`;
-const options=values=>values.map(v=>`<option>${esc(v)}</option>`).join('');
-function overview(){const f=total('session'),u=total('user');return title('THE TWO-MINUTE READ','Product Funnel & Retention Observatory','Where does the journey break, who returns, and what deserves a product test?')+`<div class="stats">${stat('Same-session conversion',pct(f.rate),`${fmt(f.k)} / ${fmt(f.n)} viewing sessions`)}${stat('Seven-day user conversion',pct(u.rate),`${fmt(u.k)} / ${fmt(u.n)} mature viewers`)}${stat('28-day repeat purchase',pct(data.repeat_purchase.rate),`${fmt(data.repeat_purchase.k)} / ${fmt(data.repeat_purchase.n)} eligible buyers`)}</div><section class="panel"><div class="panel-header"><div><h2>Explore the purchase journey</h2><p class="fine">Ordered steps. Every rate starts with product viewers.</p></div><span class="tag">PRECOMPUTED ANALYSIS</span></div><div class="controls"><label>Funnel scope<select id="mode"><option value="session">Same session</option><option value="user">User · seven days</option></select></label><label>Device<select id="device">${options(['All',...data.devices])}</select></label><label>First-user acquisition<select id="channel">${options(['All',...data.channels])}</select></label></div><div id="funnel" aria-live="polite"></div></section><div class="two-col"><section class="action"><p class="eyebrow">RECOMMENDED NEXT ACTION</p><h2>Validate the loss before testing the fix.</h2><p>${esc(data.hypotheses[0].evidence)}</p><p>${esc(data.hypotheses[0].action)}</p><a href="#opportunities">See the three investigation priorities →</a></section><section class="panel"><h2>What this evidence can say</h2><p>The current run is synthetic. These patterns demonstrate the workflow; they are not findings about Google’s store.</p><p class="fine">Before a product decision: extract the official sample, reconcile source totals, and revisit priorities. Even then, the obfuscated sample supports descriptive hypotheses, not causal claims.</p><a href="#quality">Inspect the quality checks →</a></section></div>`}
-function drawFunnel(){const mode=$('#mode').value,device=$('#device').value,channel=$('#channel').value;const f=data.funnels.find(x=>x.mode===mode&&x.device===device&&x.channel===channel);if(!f||!f.n){$('#funnel').innerHTML='<div class="empty">No eligible product viewers for this combination. Choose another device or acquisition channel.</div>';return}const names=['Product view','Add to cart','Checkout','Purchase'];$('#funnel').innerHTML=`<p class="chart-note">${mode==='session'?'Within the same observed session. Session-entry device and acquisition.':'Within seven days of the first product view; only fully observed viewers. Device and acquisition at first view.'} Observation: ${esc(data.window.start)} to ${esc(data.window.end_exclusive)} (exclusive), UTC. Denominator: <strong>${fmt(f.n)} ${mode==='session'?'viewing sessions':'mature viewers'}</strong>.</p><div role="img" aria-label="Ordered funnel: ${f.counts.map((n,i)=>names[i]+' '+n).join(', ')}">${f.counts.map((n,i)=>`<div class="funnel-row"><div class="stage-label">${names[i]}</div><div class="track"><div class="bar" style="width:${100*n/f.n}%"></div></div><div class="stage-value"><strong>${fmt(n)}</strong> / ${fmt(f.n)}<br>${pct(n/f.n)} of viewers</div></div>`).join('')}</div><div class="funnel-foot"><span>Purchase conversion <strong>${pct(f.rate)}</strong><br>95% interval: <strong>${ci(f.ci)}</strong><br><span class="fine">${mode==='session'?'User-cluster bootstrap · 500 resamples':'Wilson interval · one outcome per user'}</span></span><p class="fine">${f.small?'<span class="warn">Small group: descriptive only (n &lt; 30).</span><br>':''}Strictly increasing timestamps. Missing order IDs excluded.<br>${mode==='session'?'Users may contribute multiple sessions.':'Cross-session continuation allowed; seven-day follow-up required.'}</p></div>`}
-function retention(){return title('COHORT EXPLORER','Do first-observed users come back?','Return visits use new sessions. Earlier customer history is unavailable, so these are not “new customer” cohorts.')+`<section class="panel"><div class="panel-header"><div><h2>Weekly return-visit retention</h2><p class="fine">Each cell: returning users / all identified users first observed that week.</p></div><span class="tag">COMPLETE FOLLOW-UP ONLY</span></div><div class="table-wrap"><table class="heatmap"><caption class="fine">UTC observation: ${data.window.start} to ${data.window.end_exclusive} (exclusive). Elapsed-day windows from each user’s first event.</caption><thead><tr><th scope="col">First observed week</th>${[1,2,3,4].map(w=>`<th scope="col">Week ${w}<br>Days ${1+(w-1)*7}–${w*7}</th>`).join('')}</tr></thead><tbody>${[...new Set(data.cohorts.map(c=>c.cohort))].map(week=>`<tr><td><strong>${week}</strong></td>${data.cohorts.filter(c=>c.cohort===week).map(c=>c.eligible?`<td style="background:rgba(8,126,131,${.07+c.rate*.75})"><strong>${pct(c.rate)}</strong><small>${c.k} / ${c.n}</small><small>95% CI ${ci(c.ci)}</small></td>`:`<td class="incomplete">Not mature<small>${c.n} users · excluded</small></td>`).join('')}</tr>`).join('')}</tbody></table></div><div class="legend">Less return activity <span class="swatch"></span> More return activity · exact values always shown</div><p class="fine">A cell is hidden until every observed cohort member has the full window. Boundary cohorts may cover fewer calendar days. A return session must start in the indicated elapsed-day interval; any event alone does not count as a visit.</p></section><div class="two-col"><section class="panel"><h2>Repeat purchase in 28 days</h2><p><strong>${pct(data.repeat_purchase.rate)}</strong> · ${data.repeat_purchase.k} / ${data.repeat_purchase.n} eligible first-observed buyers</p><p class="fine">95% Wilson interval ${ci(data.repeat_purchase.ci)}. A second distinct order after the first purchase and before day 28. Only buyers with complete follow-up enter the denominator.</p></section><section class="action"><h2>Retention is a diagnostic, not a verdict.</h2><p>Merchandise buying can be infrequent. A short return window can miss healthy long purchase cycles. Check use cases and customer needs before treating absence as churn.</p></section></div>`}
-function opportunities(){return title('DECISION SUPPORT','Where should the team investigate?','Priorities are conditional hypotheses grounded in this fixture run. Segment differences are descriptive associations, not treatment effects.')+`<section class="panel"><h2>Seven-day conversion by segment</h2><p class="fine">Fully followed first product viewers, ${data.window.start} to ${data.window.end_exclusive} (exclusive), UTC. Difference compares each segment against its disjoint complement; 95% Newcombe intervals. Comparisons are exploratory and unadjusted for multiplicity.</p><div class="table-wrap"><table><thead><tr><th scope="col">Segment</th><th scope="col">Purchasers / viewers</th><th scope="col">Rate · 95% Wilson CI</th><th scope="col">Rest of population</th><th scope="col">Difference · 95% CI</th></tr></thead><tbody>${data.comparisons.map(c=>`<tr><td>${esc(c.segment)}<br><span class="fine">${c.dimension}${c.small?' · small group':''}</span></td><td class="numeric">${c.k} / ${c.n}</td><td class="numeric">${pct(c.rate)}<br>${ci(c.ci)}</td><td class="numeric">${c.reference_k} / ${c.reference_n}</td><td class="numeric">${pp(c.difference.estimate)}<br>${c.difference.ci.map(pp).join(' to ')}</td></tr>`).join('')}</tbody></table></div><p class="fine">Device and acquisition at first view. Rates are not adjusted for product mix, intent or device switching. Groups under 30 viewers are not used to set the device priority.</p></section>${data.hypotheses.map(h=>`<section class="panel hypothesis"><div class="number">0${h.priority}</div><div><h2>${esc(h.title)}</h2><p class="evidence">Fixture evidence: ${esc(h.evidence)}</p><p>${esc(h.action)}</p><p class="fine"><strong>What would weaken this hypothesis:</strong> ${esc(h.falsifier)}</p></div></section>`).join('')}`}
-function experiment(){const e=data.experiment;return title('PROPOSED FOLLOW-UP · NOT RUN','Make cart costs clear before checkout.','A candidate test after instrumentation and user research validate the friction. No experiment has been shipped.')+`<div class="two-col"><section class="panel"><h2>Experiment brief</h2><dl class="definition"><dt>Intervention & population</dt><dd>Show delivery costs and timing next to the add-to-cart action. Enroll eligible product viewers before exposure. Exclude bots, employees and unsupported delivery markets using pre-treatment rules.</dd><dt>Assignment & primary metric</dt><dd>Stable anonymous user ID, 1:1 assignment persisted across sessions. Primary metric: at least one valid purchase within seven days of assignment, analyzed by intent to treat. This differs from the strict ordered funnel: purchase counts regardless of intermediate events.</dd><dt>Guardrails</dt><dd>Page-load p75: no more than 200 ms worse; checkout error rate: no more than 0.5 percentage points worse; revenue per assigned user: rule out a decline larger than 5% using a pre-specified bootstrap. These thresholds are planning assumptions.</dd><dt>Integrity & stopping</dt><dd>Check assignment balance and exposure logging before interpreting results. Stop enrollment at the planned sample size after at least two full weeks; wait seven more days for outcomes. No efficacy peeking. A safety pause for severe errors invalidates the planned fixed-horizon readout and requires a documented restart decision.</dd><dt>Decision rule</dt><dd>Ship only if the two-sided primary 95% interval excludes zero in the beneficial direction, the effect is economically useful, and guardrail intervals rule out their harm margins. Otherwise hold or redesign. An underpowered guardrail is inconclusive, not a pass.</dd></dl></section><section class="panel"><h2>Transparent power calculator</h2><p class="fine">Assumptions, not traffic forecasts. Independent users, equal allocation, two-sided α = 0.05, normal approximation, no continuity correction.</p><form id="calculator"><div class="calc"><label>Baseline purchase rate (%)<input id="baseline" type="number" min="0.1" max="99" step="0.1" value="${e.baseline*100}" required></label><label>Absolute MDE (pp)<input id="mde" type="number" min="0.1" max="99" step="0.1" value="${e.absolute_mde*100}" required></label><label>Power<select id="power"><option value="0.8">80%</option><option value="0.9">90%</option></select></label><label>Eligible users per day<input id="traffic" type="number" min="1" step="1" value="${e.daily_users}" required></label></div><div id="calc-result" class="calc-result" aria-live="polite"></div></form><hr><h3>What the calculation means</h3><p class="fine">MDE is an absolute lift in percentage points. An assumed 15% baseline and 3 pp MDE compares 15% with 18%, a 20% relative lift. Enrollment is rounded up to full weeks, with a two-week minimum and a seven-day outcome lag.</p><p class="fine"><code>n/arm = [zα√(2p̄(1−p̄)) + zβ√(p₀(1−p₀)+p₁(1−p₁))]² / Δ²</code></p><p class="fine">The primary metric baseline must be re-estimated from real eligible traffic. Cookie loss, cross-device contamination, multiple comparisons and guardrail power may require a larger sample. Fixed-horizon primary power does not guarantee guardrail precision.</p></section></div>`}
-function calculate(){const p0=+$('#baseline').value,d=+$('#mde').value/100,power=+$('#power').value,traffic=+$('#traffic').value,p=p0/100,p1=p+d;if(!(p>0&&p1<1&&d>0&&traffic>0)){ $('#calc-result').innerHTML='<p class="error">Enter positive values with baseline + MDE below 100%.</p>';return}const z=1.9599639845400536,zb=power===.8?.8416212335729143:1.2815515655446008,mean=(p+p1)/2,n=Math.ceil((z*Math.sqrt(2*mean*(1-mean))+zb*Math.sqrt(p*(1-p)+p1*(1-p1)))**2/d**2),days=Math.max(14,Math.ceil((2*n/traffic)/7)*7);$('#calc-result').innerHTML=`<strong>${fmt(n)}</strong> users per arm<p>${fmt(2*n)} total assigned users · ${days} enrollment days<br>Readout after <b>${days+7} days</b>, including outcome lag.</p><span class="fine">${pct(p)} → ${pct(p1)} · ${pct(power)} power · traffic assumption: ${fmt(traffic)} users/day</span>`}
-function quality(){const q=data.quality;const rows=[['Input rows',q.raw_rows,'Before the UTC analysis window'],['Modeled events',q.modeled_events,'Matches in-window raw aggregate'],['Outside UTC window',q.outside_utc_window,'Excluded; property date may differ from UTC'],['Missing user identifier',q.missing_user,'Excluded from users, cohorts and session funnel'],['Unusable session identifier',q.missing_session,'Excluded from same-session metrics; identified users remain eligible for user funnel'],['Repeated session parameter',q.repeated_session_parameter,'Ambiguous session membership excluded'],['Raw purchase events',q.raw_purchases,'Before order deduplication'],['Missing order identifier',q.missing_transaction,'Excluded from purchase conversion; retained in quality totals'],['Duplicate purchase events',q.duplicate_purchases,'One earliest event retained per global order ID'],['Canonical purchases',q.canonical_purchases,'Includes orders without complete funnel paths'],['Conflicting transactions',q.conflicting_transactions,'Different known user or USD amount; investigate before interpretation'],['Unknown canonical USD revenue',q.unknown_canonical_revenue,'No event-value or local-currency substitution'],['Immature user funnels',q.immature_user_funnels,'First view has less than seven-day follow-up']];return title('TRUST & RECONCILIATION','Can these numbers be trusted?','Local reconciliation passed. Real-source extraction and independent BigQuery reconciliation remain pending.')+`<div class="stats">${stat('Raw → modeled events',fmt(q.modeled_events),q.reconciled?'PASS · event-name counts reconcile':'FAIL')}${stat('Identified users',fmt(q.users),'First-observed in the window')}${stat('Constructed sessions',fmt(q.sessions),'User ID + session ID')}</div><section class="panel"><h2>Quality ledger</h2><div class="table-wrap"><table><thead><tr><th scope="col">Check</th><th scope="col">Count</th><th scope="col">Treatment</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td class="numeric">${fmt(r[1])}</td><td>${r[2]}</td></tr>`).join('')}</tbody></table></div><p class="fine">Purchase bridge: ${q.raw_purchases} raw = ${q.canonical_purchases} canonical + ${q.duplicate_purchases} duplicate + ${q.missing_transaction} unidentified orders. USD revenue bridge: $${fmt(q.raw_revenue_usd)} raw → $${fmt(q.canonical_revenue_usd)} canonical; not realized business impact.</p></section><section class="panel"><h2>Event-level reconciliation</h2><div class="table-wrap"><table><thead><tr><th scope="col">Event</th><th scope="col">Input</th><th scope="col">Modeled</th></tr></thead><tbody>${Object.keys(q.source_counts).map(k=>`<tr><td><code>${esc(k)}</code></td><td>${q.source_counts[k]}</td><td>${q.model_counts[k]}</td></tr>`).join('')}</tbody></table></div><p class="fine">Fixture source: deterministic generator. Cloud query executed: no. Source fingerprint: <code>${data.input_sha256}</code></p></section>`}
-function methodology(){return title('METHODS & LIMITATIONS','An inspectable chain of evidence.','SQL models → Python statistics → precomputed JSON → this static site. No cloud query executes when a recruiter opens the page.')+`<section class="panel"><h2>Source and scope</h2><p>Intended source: Google’s official GA4 obfuscated ecommerce sample, covering November 2020 through January 2021. This build uses a deterministic synthetic fixture because no authorized BigQuery project or credentials were available.</p><p>Google documents placeholder values and limited internal consistency. The sample differs from the Analytics demo account. Documentation was checked on ${data.provenance.verified_on}; live table schema was not queried.</p><p><a href="${data.provenance.source_url}">Google dataset documentation ↗</a> · <a href="https://support.google.com/analytics/answer/7029846">GA4 export schema ↗</a></p><dl class="definition"><dt>Ordered same-session funnel</dt><dd>Distinct user + GA session ID. Product view precedes add-to-cart, checkout, and a canonical purchase at strictly increasing timestamps. Denominator: sessions with a product view. No inferred 30-minute sessions when the identifier is absent. Boundary sessions may be truncated.</dd><dt>Seven-day user funnel</dt><dd>Anchor at first observed product view. The same ordered stages may span sessions, but must complete before 168 elapsed hours. Only anchors with a full seven-day window enter the denominator. No cross-device identity stitching.</dd><dt>Why rates differ</dt><dd>One denominator counts sessions; the other counts unique mature viewers. Users can return and complete later, while recent viewers are excluded from the user funnel. Different populations mean the user rate need not always be higher.</dd><dt>Acquisition and device</dt><dd>The sample’s traffic_source is first-user acquisition, not session attribution. We map medium/source to a documented simplified grouping. Device is anchored at session entry or first product view. Unknowns remain visible. Groups below 30 are descriptive only.</dd><dt>Uncertainty and causality</dt><dd>Session conversion uses a user-cluster bootstrap (500 fixed-seed resamples). User conversion and retention use 95% Wilson intervals; user segment differences use Newcombe intervals versus the disjoint rest. Intervals do not measure obfuscation error or remove confounding. Multiple comparisons are exploratory.</dd><dt>Event and purchase handling</dt><dd>Repeated session parameter keys invalidate session membership. Equal timestamps do not establish funnel order. Order IDs are deduplicated globally by earliest receipt. Missing order IDs are conservatively excluded. USD ecommerce revenue is retained separately from local currency and event value; missing USD is never inferred from those fields.</dd><dt>First-observed retention</dt><dd>Week buckets use Monday in UTC. Return windows are elapsed days 1–7, 8–14, 15–21 and 22–28 (inclusive calendar labels, half-open timestamp boundaries). The full observed cohort must mature for a cell to display. Prior history, consent gaps, cookie churn and seasonality limit interpretation.</dd></dl></section><section class="panel"><h2>Reproduce and challenge</h2><p><a href="docs/analysis-walkthrough.md">Analysis walkthrough</a> · <a href="docs/data-dictionary.md">Dictionary & taxonomy</a> · <a href="docs/extraction.md">Safe extraction guide</a> · <a href="docs/interview-guide.md">Interview guide</a> · <a href="data.json">Inspect aggregate output (JSON)</a></p><p class="fine">Raw records and credentials are excluded from Git. The public site contains aggregates and no user identifiers.</p></section>`}
-function render(){const page=location.hash.slice(1)||'overview';const views={overview,retention,opportunities,experiment,quality,methodology};const active=views[page]?page:'overview';document.querySelectorAll('nav a').forEach(a=>a.toggleAttribute('aria-current',false));const link=$(`nav a[href="#${active}"]`);if(link)link.setAttribute('aria-current','page');$('#content').innerHTML=`<div class="banner"><strong>${data.source==='synthetic fixture'?'SYNTHETIC FIXTURE · DEMONSTRATION ONLY':'EXPORTED SAMPLE · VERIFY PROVENANCE'}</strong> ${data.source==='synthetic fixture'?'No real Google data queried. All results below are fabricated development data.':'Review extraction coverage and source reconciliation before making decisions.'}</div>`+views[active]();if(active==='overview'){['mode','device','channel'].forEach(id=>$('#'+id).addEventListener('change',drawFunnel));drawFunnel()}if(active==='experiment'){ $('#calculator').addEventListener('input',calculate);$('#calculator').addEventListener('submit',e=>e.preventDefault());calculate()}document.title=active[0].toUpperCase()+active.slice(1)+' · Product Funnel & Retention Observatory'}
-fetch('data.json').then(r=>{if(!r.ok)throw Error('Analysis file is unavailable');return r.json()}).then(d=>{data=d;$('#status').textContent='';render();window.addEventListener('hashchange',()=>{render();window.scrollTo(0,0)})}).catch(e=>{$('#status').textContent='Unable to load the analysis. Serve the site over HTTP and ensure data.json is present. '+e.message;$('#status').className='error'});
+const $ = (s) => document.querySelector(s);
+const fmt = (n) => (n == null ? "—" : n.toLocaleString("en-US"));
+const pct = (n) => (n == null ? "—" : (100 * n).toFixed(1) + "%");
+const pp = (n) =>
+  n == null ? "—" : (n >= 0 ? "+" : "") + (n * 100).toFixed(1) + " pp";
+const esc = (s) =>
+  String(s).replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[
+        c
+      ],
+  );
+const ci = (v) => (v[0] == null ? "Unavailable" : `${pct(v[0])}–${pct(v[1])}`);
+const total = (mode) =>
+  data.funnels.find(
+    (f) => f.mode === mode && f.device === "All" && f.channel === "All",
+  );
+const title = (eyebrow, h, desc) =>
+  `<div class="page-title"><div><p class="eyebrow">${eyebrow}</p><h1>${h}</h1><p class="lede">${desc}</p></div><div class="date">${esc(data.window.start)} — ${esc(data.window.end_exclusive)}<br>UTC · end exclusive</div></div>`;
+const stat = (label, value, detail) =>
+  `<div class="stat"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`;
+const options = (values) =>
+  values.map((v) => `<option>${esc(v)}</option>`).join("");
+function overview() {
+  const f = total("session"),
+    u = total("user");
+  return (
+    title(
+      "THE TWO-MINUTE READ",
+      "Product Funnel & Retention Observatory",
+      "Where does the journey break, who returns, and what deserves a product test?",
+    ) +
+    `<div class="stats">${stat("Same-session conversion", pct(f.rate), `${fmt(f.k)} / ${fmt(f.n)} viewing sessions`)}${stat("Seven-day user conversion", pct(u.rate), `${fmt(u.k)} / ${fmt(u.n)} mature viewers`)}${stat("28-day repeat purchase", pct(data.repeat_purchase.rate), `${fmt(data.repeat_purchase.k)} / ${fmt(data.repeat_purchase.n)} eligible buyers`)}</div><section class="panel"><div class="panel-header"><div><h2>Explore the purchase journey</h2><p class="fine">Ordered steps. Every rate starts with product viewers.</p></div><span class="tag">PRECOMPUTED ANALYSIS</span></div><div class="controls"><label>Funnel scope<select id="mode"><option value="session">Same session</option><option value="user">User · seven days</option></select></label><label>Device<select id="device">${options(["All", ...data.devices])}</select></label><label>First-user acquisition<select id="channel">${options(["All", ...data.channels])}</select></label></div><div id="funnel" aria-live="polite"></div></section><div class="two-col"><section class="action"><p class="eyebrow">RECOMMENDED NEXT ACTION</p><h2>Validate the loss before testing the fix.</h2><p>${esc(data.hypotheses[0].evidence)}</p><p>${esc(data.hypotheses[0].action)}</p><a href="#opportunities">See the three investigation priorities →</a></section><section class="panel"><h2>What this evidence can say</h2><p>The current run is synthetic. These patterns demonstrate the workflow; they are not findings about Google’s store.</p><p class="fine">Before a product decision: extract the official sample, reconcile source totals, and revisit priorities. Even then, the obfuscated sample supports descriptive hypotheses, not causal claims.</p><a href="#quality">Inspect the quality checks →</a></section></div>`
+  );
+}
+function drawFunnel() {
+  const mode = $("#mode").value,
+    device = $("#device").value,
+    channel = $("#channel").value;
+  const f = data.funnels.find(
+    (x) => x.mode === mode && x.device === device && x.channel === channel,
+  );
+  if (!f || !f.n) {
+    $("#funnel").innerHTML =
+      '<div class="empty">No eligible product viewers for this combination. Choose another device or acquisition channel.</div>';
+    return;
+  }
+  const names = ["Product view", "Add to cart", "Checkout", "Purchase"];
+  $("#funnel").innerHTML =
+    `<p class="chart-note">${mode === "session" ? "Within the same observed session. Session-entry device and acquisition." : "Within seven days of the first product view; only fully observed viewers. Device and acquisition at first view."} Observation: ${esc(data.window.start)} to ${esc(data.window.end_exclusive)} (exclusive), UTC. Denominator: <strong>${fmt(f.n)} ${mode === "session" ? "viewing sessions" : "mature viewers"}</strong>.</p><div role="img" aria-label="Ordered funnel: ${f.counts.map((n, i) => names[i] + " " + n).join(", ")}">${f.counts.map((n, i) => `<div class="funnel-row"><div class="stage-label">${names[i]}</div><div class="track"><div class="bar" style="width:${(100 * n) / f.n}%"></div></div><div class="stage-value"><strong>${fmt(n)}</strong> / ${fmt(f.n)}<br>${pct(n / f.n)} of viewers</div></div>`).join("")}</div><div class="funnel-foot"><span>Purchase conversion <strong>${pct(f.rate)}</strong><br>95% interval: <strong>${ci(f.ci)}</strong><br><span class="fine">${mode === "session" ? "User-cluster bootstrap · 500 resamples" : "Wilson interval · one outcome per user"}</span></span><p class="fine">${f.small ? '<span class="warn">Small group: descriptive only (n &lt; 30).</span><br>' : ""}Strictly increasing timestamps. Missing order IDs excluded.<br>${mode === "session" ? "Users may contribute multiple sessions." : "Cross-session continuation allowed; seven-day follow-up required."}</p></div>`;
+}
+function retention() {
+  return (
+    title(
+      "COHORT EXPLORER",
+      "Do first-observed users come back?",
+      "Return visits use new sessions. Earlier customer history is unavailable, so these are not “new customer” cohorts.",
+    ) +
+    `<section class="panel"><div class="panel-header"><div><h2>Weekly return-visit retention</h2><p class="fine">Each cell: returning users / all identified users first observed that week.</p></div><span class="tag">COMPLETE FOLLOW-UP ONLY</span></div><div class="table-wrap"><table class="heatmap"><caption class="fine">UTC observation: ${data.window.start} to ${data.window.end_exclusive} (exclusive). Elapsed-day windows from each user’s first event.</caption><thead><tr><th scope="col">First observed week</th>${[1, 2, 3, 4].map((w) => `<th scope="col">Week ${w}<br>Days ${1 + (w - 1) * 7}–${w * 7}</th>`).join("")}</tr></thead><tbody>${[
+      ...new Set(data.cohorts.map((c) => c.cohort)),
+    ]
+      .map(
+        (week) =>
+          `<tr><td><strong>${week}</strong></td>${data.cohorts
+            .filter((c) => c.cohort === week)
+            .map((c) =>
+              c.eligible
+                ? `<td style="background:rgba(8,126,131,${0.07 + c.rate * 0.75})"><strong>${pct(c.rate)}</strong><small>${c.k} / ${c.n}</small><small>95% CI ${ci(c.ci)}</small></td>`
+                : `<td class="incomplete">Not mature<small>${c.n} users · excluded</small></td>`,
+            )
+            .join("")}</tr>`,
+      )
+      .join(
+        "",
+      )}</tbody></table></div><div class="legend">Less return activity <span class="swatch"></span> More return activity · exact values always shown</div><p class="fine">A cell is hidden until every observed cohort member has the full window. Boundary cohorts may cover fewer calendar days. A return session must start in the indicated elapsed-day interval; any event alone does not count as a visit.</p></section><div class="two-col"><section class="panel"><h2>Repeat purchase in 28 days</h2><p><strong>${pct(data.repeat_purchase.rate)}</strong> · ${data.repeat_purchase.k} / ${data.repeat_purchase.n} eligible first-observed buyers</p><p class="fine">95% Wilson interval ${ci(data.repeat_purchase.ci)}. A second distinct order after the first purchase and before day 28. Only buyers with complete follow-up enter the denominator.</p></section><section class="action"><h2>Retention is a diagnostic, not a verdict.</h2><p>Merchandise buying can be infrequent. A short return window can miss healthy long purchase cycles. Check use cases and customer needs before treating absence as churn.</p></section></div>`
+  );
+}
+function opportunities() {
+  return (
+    title(
+      "DECISION SUPPORT",
+      "Where should the team investigate?",
+      "Priorities are conditional hypotheses grounded in this fixture run. Segment differences are descriptive associations, not treatment effects.",
+    ) +
+    `<section class="panel"><h2>Seven-day conversion by segment</h2><p class="fine">Fully followed first product viewers, ${data.window.start} to ${data.window.end_exclusive} (exclusive), UTC. Difference compares each segment against its disjoint complement; 95% Newcombe intervals. Comparisons are exploratory and unadjusted for multiplicity.</p><div class="table-wrap"><table><thead><tr><th scope="col">Segment</th><th scope="col">Purchasers / viewers</th><th scope="col">Rate · 95% Wilson CI</th><th scope="col">Rest of population</th><th scope="col">Difference · 95% CI</th></tr></thead><tbody>${data.comparisons.map((c) => `<tr><td>${esc(c.segment)}<br><span class="fine">${c.dimension}${c.small ? " · small group" : ""}</span></td><td class="numeric">${c.k} / ${c.n}</td><td class="numeric">${pct(c.rate)}<br>${ci(c.ci)}</td><td class="numeric">${c.reference_k} / ${c.reference_n}</td><td class="numeric">${pp(c.difference.estimate)}<br>${c.difference.ci.map(pp).join(" to ")}</td></tr>`).join("")}</tbody></table></div><p class="fine">Device and acquisition at first view. Rates are not adjusted for product mix, intent or device switching. Groups under 30 viewers are not used to set the device priority.</p></section>${data.hypotheses.map((h) => `<section class="panel hypothesis"><div class="number">0${h.priority}</div><div><h2>${esc(h.title)}</h2><p class="evidence">Fixture evidence: ${esc(h.evidence)}</p><p>${esc(h.action)}</p><p class="fine"><strong>What would weaken this hypothesis:</strong> ${esc(h.falsifier)}</p></div></section>`).join("")}`
+  );
+}
+function experiment() {
+  const e = data.experiment;
+  return (
+    title(
+      "PROPOSED FOLLOW-UP · NOT RUN",
+      "Make cart costs clear before checkout.",
+      "A candidate test after instrumentation and user research validate the friction. No experiment has been shipped.",
+    ) +
+    `<div class="two-col"><section class="panel"><h2>Experiment brief</h2><dl class="definition"><dt>Intervention & population</dt><dd>Show delivery costs and timing next to the add-to-cart action. Enroll eligible product viewers before exposure. Exclude bots, employees and unsupported delivery markets using pre-treatment rules.</dd><dt>Assignment & primary metric</dt><dd>Stable anonymous user ID, 1:1 assignment persisted across sessions. Primary metric: at least one valid purchase within seven days of assignment, analyzed by intent to treat. This differs from the strict ordered funnel: purchase counts regardless of intermediate events.</dd><dt>Guardrails</dt><dd>Page-load p75: no more than 200 ms worse; checkout error rate: no more than 0.5 percentage points worse; revenue per assigned user: rule out a decline larger than 5% using a pre-specified bootstrap. These thresholds are planning assumptions.</dd><dt>Integrity & stopping</dt><dd>Check assignment balance and exposure logging before interpreting results. Stop enrollment when both the planned minimum sample and at least two full weeks have been reached; wait seven more days for outcomes. No efficacy peeking. A safety pause for severe errors invalidates the planned fixed-horizon readout and requires a documented restart decision.</dd><dt>Decision rule</dt><dd>Ship only if the two-sided primary 95% interval excludes zero in the beneficial direction, the effect is economically useful, and guardrail intervals rule out their harm margins. Otherwise hold or redesign. An underpowered guardrail is inconclusive, not a pass.</dd></dl></section><section class="panel"><h2>Transparent power calculator</h2><p class="fine">Assumptions, not traffic forecasts. Independent users, equal allocation, two-sided α = 0.05, normal approximation, no continuity correction.</p><form id="calculator"><div class="calc"><label>Baseline purchase rate (%)<input id="baseline" type="number" min="0.1" max="99" step="0.1" value="${e.baseline * 100}" required></label><label>Absolute MDE (pp)<input id="mde" type="number" min="0.1" max="99" step="0.1" value="${e.absolute_mde * 100}" required></label><label>Power<select id="power"><option value="0.8">80%</option><option value="0.9">90%</option></select></label><label>Eligible users per day<input id="traffic" type="number" min="1" step="1" value="${e.daily_users}" required></label></div><div id="calc-result" class="calc-result" aria-live="polite"></div></form><hr><h3>What the calculation means</h3><p class="fine">MDE is an absolute lift in percentage points. An assumed 15% baseline and 3 pp MDE compares 15% with 18%, a 20% relative lift. Enrollment is rounded up to full weeks, with a two-week minimum and a seven-day outcome lag.</p><p class="fine"><code>n/arm = [zα√(2p̄(1−p̄)) + zβ√(p₀(1−p₀)+p₁(1−p₁))]² / Δ²</code></p><p class="fine">The primary metric baseline must be re-estimated from real eligible traffic. Cookie loss, cross-device contamination, multiple comparisons and guardrail power may require a larger sample. Fixed-horizon primary power does not guarantee guardrail precision.</p></section></div>`
+  );
+}
+function calculate() {
+  const p0 = +$("#baseline").value,
+    d = +$("#mde").value / 100,
+    power = +$("#power").value,
+    traffic = +$("#traffic").value,
+    p = p0 / 100,
+    p1 = p + d;
+  if (!(p > 0 && p1 < 1 && d > 0 && traffic > 0)) {
+    $("#calc-result").innerHTML =
+      '<p class="error">Enter positive values with baseline + MDE below 100%.</p>';
+    return;
+  }
+  const z = 1.9599639845400536,
+    zb = power === 0.8 ? 0.8416212335729143 : 1.2815515655446008,
+    mean = (p + p1) / 2,
+    n = Math.ceil(
+      (z * Math.sqrt(2 * mean * (1 - mean)) +
+        zb * Math.sqrt(p * (1 - p) + p1 * (1 - p1))) **
+        2 /
+        d ** 2,
+    ),
+    days = Math.max(14, Math.ceil((2 * n) / traffic / 7) * 7);
+  $("#calc-result").innerHTML =
+    `<strong>${fmt(n)}</strong> users per arm<p>${fmt(2 * n)} total assigned users · ${days} enrollment days<br>Readout after <b>${days + 7} days</b>, including outcome lag.</p><span class="fine">${pct(p)} → ${pct(p1)} · ${pct(power)} power · traffic assumption: ${fmt(traffic)} users/day</span>`;
+}
+function quality() {
+  const q = data.quality;
+  const rows = [
+    ["Input rows", q.raw_rows, "Before the UTC analysis window"],
+    ["Modeled events", q.modeled_events, "Matches in-window raw aggregate"],
+    [
+      "Outside UTC window",
+      q.outside_utc_window,
+      "Excluded; property date may differ from UTC",
+    ],
+    [
+      "Missing user identifier",
+      q.missing_user,
+      "Excluded from users, cohorts and session funnel",
+    ],
+    [
+      "Unusable session identifier",
+      q.missing_session,
+      "Excluded from same-session metrics; identified users remain eligible for user funnel",
+    ],
+    [
+      "Repeated session parameter",
+      q.repeated_session_parameter,
+      "Ambiguous session membership excluded",
+    ],
+    ["Raw purchase events", q.raw_purchases, "Before order deduplication"],
+    [
+      "Missing order identifier",
+      q.missing_transaction,
+      "Excluded from purchase conversion; retained in quality totals",
+    ],
+    [
+      "Duplicate purchase events",
+      q.duplicate_purchases,
+      "One earliest event retained per global order ID",
+    ],
+    [
+      "Canonical purchases",
+      q.canonical_purchases,
+      "Includes orders without complete funnel paths",
+    ],
+    [
+      "Conflicting transactions",
+      q.conflicting_transactions,
+      "Different known user or USD amount; investigate before interpretation",
+    ],
+    [
+      "Unknown canonical USD revenue",
+      q.unknown_canonical_revenue,
+      "No event-value or local-currency substitution",
+    ],
+    [
+      "Immature user funnels",
+      q.immature_user_funnels,
+      "First view has less than seven-day follow-up",
+    ],
+  ];
+  return (
+    title(
+      "TRUST & RECONCILIATION",
+      "Can these numbers be trusted?",
+      "Local reconciliation passed. Real-source extraction and independent BigQuery reconciliation remain pending.",
+    ) +
+    `<div class="stats">${stat("Raw → modeled events", fmt(q.modeled_events), q.reconciled ? "PASS · event-name counts reconcile" : "FAIL")}${stat("Identified users", fmt(q.users), "First-observed in the window")}${stat("Constructed sessions", fmt(q.sessions), "User ID + session ID")}</div><section class="panel"><h2>Quality ledger</h2><div class="table-wrap"><table><thead><tr><th scope="col">Check</th><th scope="col">Count</th><th scope="col">Treatment</th></tr></thead><tbody>${rows.map((r) => `<tr><td>${r[0]}</td><td class="numeric">${fmt(r[1])}</td><td>${r[2]}</td></tr>`).join("")}</tbody></table></div><p class="fine">Purchase bridge: ${q.raw_purchases} raw = ${q.canonical_purchases} canonical + ${q.duplicate_purchases} duplicate + ${q.missing_transaction} unidentified orders. USD revenue bridge: $${fmt(q.raw_revenue_usd)} raw → $${fmt(q.canonical_revenue_usd)} canonical; not realized business impact.</p></section><section class="panel"><h2>Event-level reconciliation</h2><div class="table-wrap"><table><thead><tr><th scope="col">Event</th><th scope="col">Input</th><th scope="col">Modeled</th></tr></thead><tbody>${Object.keys(
+      q.source_counts,
+    )
+      .map(
+        (k) =>
+          `<tr><td><code>${esc(k)}</code></td><td>${q.source_counts[k]}</td><td>${q.model_counts[k]}</td></tr>`,
+      )
+      .join(
+        "",
+      )}</tbody></table></div><p class="fine">Fixture source: deterministic generator. Cloud query executed: no. Source fingerprint: <code>${data.input_sha256}</code></p></section>`
+  );
+}
+function methodology() {
+  return (
+    title(
+      "METHODS & LIMITATIONS",
+      "An inspectable chain of evidence.",
+      "SQL models → Python statistics → precomputed JSON → this static site. No cloud query executes when a recruiter opens the page.",
+    ) +
+    `<section class="panel"><h2>Source and scope</h2><p>Intended source: Google’s official GA4 obfuscated ecommerce sample, covering November 2020 through January 2021. This build uses a deterministic synthetic fixture because no authorized BigQuery project or credentials were available.</p><p>Google documents placeholder values and limited internal consistency. The sample differs from the Analytics demo account. Documentation was checked on ${data.provenance.verified_on}; live table schema was not queried.</p><p><a href="${data.provenance.source_url}">Google dataset documentation ↗</a> · <a href="https://support.google.com/analytics/answer/7029846">GA4 export schema ↗</a></p><dl class="definition"><dt>Ordered same-session funnel</dt><dd>Distinct user + GA session ID. Product view precedes add-to-cart, checkout, and a canonical purchase at strictly increasing timestamps. Denominator: sessions with a product view. No inferred 30-minute sessions when the identifier is absent. Boundary sessions may be truncated.</dd><dt>Seven-day user funnel</dt><dd>Anchor at first observed product view. The same ordered stages may span sessions, but must complete before 168 elapsed hours. Only anchors with a full seven-day window enter the denominator. No cross-device identity stitching.</dd><dt>Why rates differ</dt><dd>One denominator counts sessions; the other counts unique mature viewers. Users can return and complete later, while recent viewers are excluded from the user funnel. Different populations mean the user rate need not always be higher.</dd><dt>Acquisition and device</dt><dd>The sample’s traffic_source is first-user acquisition, not session attribution. We map medium/source to a documented simplified grouping. Device is anchored at session entry or first product view. Unknowns remain visible. Groups below 30 are descriptive only.</dd><dt>Uncertainty and causality</dt><dd>Session conversion uses a user-cluster bootstrap (500 fixed-seed resamples). User conversion and retention use 95% Wilson intervals; user segment differences use Newcombe intervals versus the disjoint rest. Intervals do not measure obfuscation error or remove confounding. Multiple comparisons are exploratory.</dd><dt>Event and purchase handling</dt><dd>Repeated session parameter keys invalidate session membership. Equal timestamps do not establish funnel order. Order IDs are deduplicated globally by earliest receipt. Missing order IDs are conservatively excluded. USD ecommerce revenue is retained separately from local currency and event value; missing USD is never inferred from those fields.</dd><dt>First-observed retention</dt><dd>Week buckets use Monday in UTC. Return windows are elapsed days 1–7, 8–14, 15–21 and 22–28 (inclusive calendar labels, half-open timestamp boundaries). The full observed cohort must mature for a cell to display. Prior history, consent gaps, cookie churn and seasonality limit interpretation.</dd></dl></section><section class="panel"><h2>Reproduce and challenge</h2><p><a href="docs/analysis-walkthrough.md">Analysis walkthrough</a> · <a href="docs/data-dictionary.md">Dictionary & taxonomy</a> · <a href="docs/extraction.md">Safe extraction guide</a> · <a href="docs/interview-guide.md">Interview guide</a> · <a href="data.json">Inspect aggregate output (JSON)</a></p><p class="fine">Raw records and credentials are excluded from Git. The public site contains aggregates and no user identifiers.</p></section>`
+  );
+}
+function render() {
+  const page = location.hash.slice(1) || "overview";
+  const views = {
+    overview,
+    retention,
+    opportunities,
+    experiment,
+    quality,
+    methodology,
+  };
+  const active = views[page] ? page : "overview";
+  document
+    .querySelectorAll("nav a")
+    .forEach((a) => a.toggleAttribute("aria-current", false));
+  const link = $(`nav a[href="#${active}"]`);
+  if (link) link.setAttribute("aria-current", "page");
+  $("#content").innerHTML =
+    `<div class="banner"><strong>${data.source === "synthetic fixture" ? "SYNTHETIC FIXTURE · DEMONSTRATION ONLY" : "EXPORTED SAMPLE · VERIFY PROVENANCE"}</strong> ${data.source === "synthetic fixture" ? "No real Google data queried. All results below are fabricated development data." : "Review extraction coverage and source reconciliation before making decisions."}</div>` +
+    views[active]();
+  if (active === "overview") {
+    ["mode", "device", "channel"].forEach((id) =>
+      $("#" + id).addEventListener("change", drawFunnel),
+    );
+    drawFunnel();
+  }
+  if (active === "experiment") {
+    $("#calculator").addEventListener("input", calculate);
+    $("#calculator").addEventListener("submit", (e) => e.preventDefault());
+    calculate();
+  }
+  document.title =
+    active[0].toUpperCase() +
+    active.slice(1) +
+    " · Product Funnel & Retention Observatory";
+}
+fetch("data.json")
+  .then((r) => {
+    if (!r.ok) throw Error("Analysis file is unavailable");
+    return r.json();
+  })
+  .then((d) => {
+    data = d;
+    $("#status").textContent = "";
+    render();
+    window.addEventListener("hashchange", () => {
+      render();
+      window.scrollTo(0, 0);
+    });
+  })
+  .catch((e) => {
+    $("#status").textContent =
+      "Unable to load the analysis. Serve the site over HTTP and ensure data.json is present. " +
+      e.message;
+    $("#status").className = "error";
+  });

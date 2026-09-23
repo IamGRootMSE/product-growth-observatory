@@ -10,3 +10,5 @@ service-account*.json
 dist/
 test-results/
 outputs/*.zip
+outputs/*.bundle
+outputs/PROJECT-HANDOFF.md

@@ -39,18 +39,17 @@ def ordered_stage(events, window=None):
 
 def funnel_records(events, purchases, end):
     canonical={r['event_id'] for r in purchases}
-    valid=[e for e in events if e['event_name']!='purchase' or e['event_id'] in canonical]
     by_session=defaultdict(list); by_user=defaultdict(list)
-    for e in valid:
+    for e in events:
         if e['session_key']: by_session[e['session_key']].append(e)
         if e['user_key']: by_user[e['user_key']].append(e)
     sessions=[]; users=[]; immature=0
     for key,es in by_session.items():
         first=min(es,key=lambda e:(e['event_timestamp'],e['event_id']))
-        stage,_=ordered_stage(es)
+        stage,_=ordered_stage([e for e in es if e['event_name']!='purchase' or e['event_id'] in canonical])
         sessions.append(dict(key=key,user=first['user_key'],device=first['device_group'],channel=first['channel'],stage=stage))
     for key,es in by_user.items():
-        stage,anchor=ordered_stage(es,7*DAY)
+        stage,anchor=ordered_stage([e for e in es if e['event_name']!='purchase' or e['event_id'] in canonical],7*DAY)
         if not stage: continue
         if anchor+7*DAY>end: immature+=1; continue
         first=min((e for e in es if e['event_name']=='view_item'),key=lambda e:(e['event_timestamp'],e['event_id']))

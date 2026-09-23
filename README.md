@@ -123,7 +123,7 @@ Never publish raw CSV exports. The current deployment workflow explicitly regene
 
 ## Portfolio materials
 
-- [One-page product decision memo](docs/decision-memo.md)
+- [One-page product decision memo (PDF)](outputs/product-decision-memo.pdf) · [HTML](docs/decision-memo.html) · [Markdown](docs/decision-memo.md)
 - [Analysis walkthrough](docs/analysis-walkthrough.md)
 - [Data dictionary, taxonomy and metric definitions](docs/data-dictionary.md)
 - [Interview guide and potential objections](docs/interview-guide.md)
