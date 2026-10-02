@@ -4,7 +4,7 @@ An **independent portfolio project** demonstrating event modeling, SQL, product 
 
 **Data status: synthetic development fixture. No real Google data has been queried.** Official sample documentation was verified, and executable bounded extraction SQL is included. No shipped experiment, realized revenue impact, or real customer finding is claimed.
 
-## Recruiter quick tour
+## Quick tour
 
 1. Explore the session funnel, then switch to mature seven-day users.
 2. Inspect first-observed retention and excluded immature cells.
@@ -126,6 +126,5 @@ Never publish raw CSV exports. The current deployment workflow explicitly regene
 - [One-page product decision memo (PDF)](outputs/product-decision-memo.pdf) · [HTML](docs/decision-memo.html) · [Markdown](docs/decision-memo.md)
 - [Analysis walkthrough](docs/analysis-walkthrough.md)
 - [Data dictionary, taxonomy and metric definitions](docs/data-dictionary.md)
-- [Interview guide and potential objections](docs/interview-guide.md)
-- [Three defensible resume bullets](docs/resume-bullets.md)
+- [Measurement design notes](docs/design-notes.md)
 - [Source provenance and limitations](docs/provenance.md)
