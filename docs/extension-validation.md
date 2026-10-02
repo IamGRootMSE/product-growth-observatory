@@ -9,3 +9,7 @@ Executed on RONIN with Python 3.12.14 in a new isolated environment installed fr
 - `python scripts/build.py` and `python scripts/browser_test.py`: passed all six existing routes at desktop/mobile, intersected filters, empty states, keyboard behavior, calculator arithmetic and invalid inputs, artifact HTTP checks and 200% zoom equivalent.
 
 The new finance fixture is separate from the existing GA4-style event fixture. Neither contains real business observations. Tests demonstrate correctness on known examples, not commercial forecast accuracy. Local validation is distinct from GitHub Actions status; review the PR checks for the published commit.
+
+## Follow-up reproducibility review
+
+The full updated suite passes **21 tests**. CI and the future Pages build regenerate finance results into a separate directory, compare them against committed JSON, then copy regenerated artifacts into the build. Snapshot comparisons require exact structure, strings, integer counts and input hashes; float comparisons permit only 1e-12 relative/absolute roundoff. These snapshots contain no runtime, timestamp or platform metadata. Comparator tests reject material numeric changes, schema drift, boolean/count substitutions, changed selections, array-length changes and nonfinite values. Existing published finance findings are unchanged.
