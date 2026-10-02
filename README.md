@@ -4,6 +4,14 @@ An **independent portfolio project** demonstrating event modeling, SQL, product 
 
 **Data status: synthetic development fixture. No real Google data has been queried.** Official sample documentation was verified, and executable bounded extraction SQL is included. No shipped experiment, realized revenue impact, or real customer finding is claimed.
 
+## New: revenue, margin and forecasting
+
+A separate **synthetic commerce** extension adds reconciled order economics, exact volume/mix/price/cost bridges, 90-day mature repeat-purchase cohorts, and forecast selection with untouched holdout evaluation. The simple last-month baseline wins validation; its 7.57% holdout WAPE describes this artificial series only.
+
+Run `python -m observatory.finance`, then open [`outputs/finance/index.html`](outputs/finance/index.html). See the [five-minute walkthrough and interview questions](docs/finance-walkthrough.md) and [executed aggregate evidence](outputs/finance/results.json). No paid service or new credential is required.
+
+![Synthetic revenue and margin readout](outputs/finance/desktop.png)
+
 ## Recruiter quick tour
 
 1. Explore the session funnel, then switch to mature seven-day users.
