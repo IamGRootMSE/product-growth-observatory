@@ -1,6 +1,6 @@
 # Revenue, margin and forecast walkthrough
 
-Independent portfolio extension, October 2, 2026. **Causal boundaries.** This is not the GA4 fixture, real Google-store data, employer work or a realized financial outcome.
+Independent portfolio extension, October 2, 2026. **Entirely synthetic commerce data.** This is not the GA4 fixture, real Google-store data, employer work or a realized financial outcome.
 
 ## Five-minute demo
 
