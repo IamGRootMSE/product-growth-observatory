@@ -1,5 +1,5 @@
 {
-  "source": "SYNTHETIC independent commerce fixture; no GA4, Fullscript, patient or employer data",
+  "source": "SYNTHETIC independent commerce fixture; no GA4, patient or employer data",
   "seed": 20261002,
   "orders": 13672,
   "months": [

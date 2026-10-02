@@ -188,7 +188,7 @@ def analyze(orders):
         assert isclose(sum(r['revenue'] for r in months),sum(r['revenue_cents'] for r in orders)/100,abs_tol=1e-7)
         assert isclose(sum(r['margin'] for r in months),sum(r['revenue_cents']-r['variable_cost_cents'] for r in orders)/100,abs_tol=1e-7)
         a,b = [state([r for r in products if r['month']==m['month']]) for m in months[-2:]]
-        return dict(source='SYNTHETIC independent commerce fixture; no GA4, Fullscript, patient or employer data',
+        return dict(source='SYNTHETIC independent commerce fixture; no GA4, patient or employer data',
             seed=20261002, orders=len(orders), months=months,
             revenue_bridge=bridge(a,b,False),margin_bridge=bridge(a,b),
             cohorts=repeat_cohorts(orders,date(2026,1,1)), forecast=forecast(months),

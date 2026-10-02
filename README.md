@@ -8,11 +8,11 @@ An **independent portfolio project** demonstrating event modeling, SQL, product 
 
 A separate **synthetic commerce** extension adds reconciled order economics, exact volume/mix/price/cost bridges, 90-day mature repeat-purchase cohorts, and forecast selection with untouched holdout evaluation. The simple last-month baseline wins validation; its 7.57% holdout WAPE describes this artificial series only.
 
-Run `python -m observatory.finance`, then open [`outputs/finance/index.html`](outputs/finance/index.html). See the [five-minute walkthrough and interview questions](docs/finance-walkthrough.md) and [executed aggregate evidence](outputs/finance/results.json). No paid service or new credential is required.
+Run `python -m observatory.finance`, then open [`outputs/finance/index.html`](outputs/finance/index.html). See the [technical walkthrough](docs/finance-walkthrough.md) and [executed aggregate evidence](outputs/finance/results.json). No paid service or new credential is required.
 
 ![Synthetic revenue and margin readout](outputs/finance/desktop.png)
 
-## Recruiter quick tour
+## Quick tour
 
 1. Explore the session funnel, then switch to mature seven-day users.
 2. Inspect first-observed retention and excluded immature cells.
@@ -134,6 +134,5 @@ Never publish raw CSV exports. The current deployment workflow explicitly regene
 - [One-page product decision memo (PDF)](outputs/product-decision-memo.pdf) · [HTML](docs/decision-memo.html) · [Markdown](docs/decision-memo.md)
 - [Analysis walkthrough](docs/analysis-walkthrough.md)
 - [Data dictionary, taxonomy and metric definitions](docs/data-dictionary.md)
-- [Interview guide and potential objections](docs/interview-guide.md)
-- [Three defensible resume bullets](docs/resume-bullets.md)
+- [Measurement design notes](docs/design-notes.md)
 - [Source provenance and limitations](docs/provenance.md)
