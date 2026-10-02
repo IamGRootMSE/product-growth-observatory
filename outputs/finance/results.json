@@ -1,0 +1,715 @@
+{
+  "source": "SYNTHETIC independent commerce fixture; no GA4, patient or employer data",
+  "seed": 20261002,
+  "orders": 13672,
+  "months": [
+    {
+      "month": "2024-01",
+      "orders": 107,
+      "buyers": 100,
+      "revenue": 7630.0,
+      "cost": 4651.0,
+      "margin": 2979.0
+    },
+    {
+      "month": "2024-02",
+      "orders": 150,
+      "buyers": 130,
+      "revenue": 11405.0,
+      "cost": 6854.0,
+      "margin": 4551.0
+    },
+    {
+      "month": "2024-03",
+      "orders": 187,
+      "buyers": 162,
+      "revenue": 13970.0,
+      "cost": 8411.0,
+      "margin": 5559.0
+    },
+    {
+      "month": "2024-04",
+      "orders": 218,
+      "buyers": 194,
+      "revenue": 16110.0,
+      "cost": 9770.0,
+      "margin": 6340.0
+    },
+    {
+      "month": "2024-05",
+      "orders": 244,
+      "buyers": 215,
+      "revenue": 18555.0,
+      "cost": 11160.0,
+      "margin": 7395.0
+    },
+    {
+      "month": "2024-06",
+      "orders": 264,
+      "buyers": 233,
+      "revenue": 19945.0,
+      "cost": 11988.0,
+      "margin": 7957.0
+    },
+    {
+      "month": "2024-07",
+      "orders": 330,
+      "buyers": 290,
+      "revenue": 24805.0,
+      "cost": 14950.0,
+      "margin": 9855.0
+    },
+    {
+      "month": "2024-08",
+      "orders": 355,
+      "buyers": 315,
+      "revenue": 27620.0,
+      "cost": 16531.0,
+      "margin": 11089.0
+    },
+    {
+      "month": "2024-09",
+      "orders": 396,
+      "buyers": 345,
+      "revenue": 30200.0,
+      "cost": 18136.0,
+      "margin": 12064.0
+    },
+    {
+      "month": "2024-10",
+      "orders": 435,
+      "buyers": 384,
+      "revenue": 33215.0,
+      "cost": 19955.0,
+      "margin": 13260.0
+    },
+    {
+      "month": "2024-11",
+      "orders": 440,
+      "buyers": 400,
+      "revenue": 32470.0,
+      "cost": 19616.0,
+      "margin": 12854.0
+    },
+    {
+      "month": "2024-12",
+      "orders": 531,
+      "buyers": 465,
+      "revenue": 40090.0,
+      "cost": 24159.0,
+      "margin": 15931.0
+    },
+    {
+      "month": "2025-01",
+      "orders": 555,
+      "buyers": 489,
+      "revenue": 42260.0,
+      "cost": 25371.0,
+      "margin": 16889.0
+    },
+    {
+      "month": "2025-02",
+      "orders": 602,
+      "buyers": 535,
+      "revenue": 45340.0,
+      "cost": 27314.0,
+      "margin": 18026.0
+    },
+    {
+      "month": "2025-03",
+      "orders": 637,
+      "buyers": 570,
+      "revenue": 49790.0,
+      "cost": 29757.0,
+      "margin": 20033.0
+    },
+    {
+      "month": "2025-04",
+      "orders": 717,
+      "buyers": 629,
+      "revenue": 54330.0,
+      "cost": 32677.0,
+      "margin": 21653.0
+    },
+    {
+      "month": "2025-05",
+      "orders": 736,
+      "buyers": 641,
+      "revenue": 56400.0,
+      "cost": 33864.0,
+      "margin": 22536.0
+    },
+    {
+      "month": "2025-06",
+      "orders": 809,
+      "buyers": 709,
+      "revenue": 62300.0,
+      "cost": 37421.0,
+      "margin": 24879.0
+    },
+    {
+      "month": "2025-07",
+      "orders": 850,
+      "buyers": 760,
+      "revenue": 52775.0,
+      "cost": 37852.0,
+      "margin": 14923.0
+    },
+    {
+      "month": "2025-08",
+      "orders": 874,
+      "buyers": 787,
+      "revenue": 53990.0,
+      "cost": 38800.0,
+      "margin": 15190.0
+    },
+    {
+      "month": "2025-09",
+      "orders": 974,
+      "buyers": 860,
+      "revenue": 59665.0,
+      "cost": 43044.0,
+      "margin": 16621.0
+    },
+    {
+      "month": "2025-10",
+      "orders": 1026,
+      "buyers": 901,
+      "revenue": 64690.0,
+      "cost": 46176.0,
+      "margin": 18514.0
+    },
+    {
+      "month": "2025-11",
+      "orders": 1055,
+      "buyers": 938,
+      "revenue": 64720.0,
+      "cost": 46604.0,
+      "margin": 18116.0
+    },
+    {
+      "month": "2025-12",
+      "orders": 1180,
+      "buyers": 1048,
+      "revenue": 71005.0,
+      "cost": 51496.0,
+      "margin": 19509.0
+    }
+  ],
+  "revenue_bridge": {
+    "before": 64720.0,
+    "after": 71004.99999999999,
+    "change": 6284.999999999985,
+    "effects": {
+      "volume": 7595.090818363533,
+      "mix": -1275.7660463562547,
+      "price": -34.324772007291664
+    },
+    "residual": -9.094947017729282e-13
+  },
+  "margin_bridge": {
+    "before": 18116.000000000004,
+    "after": 19508.999999999996,
+    "change": 1392.9999999999927,
+    "effects": {
+      "volume": 2106.64797154853,
+      "mix": -679.3231995412473,
+      "price": -34.324772007289845,
+      "cost": 0.0
+    },
+    "residual": -4.547473508864641e-13
+  },
+  "cohorts": [
+    {
+      "cohort": "2024-01",
+      "buyers": 100,
+      "mature": true,
+      "repeat_buyers": 55,
+      "rate": 0.55
+    },
+    {
+      "cohort": "2024-02",
+      "buyers": 105,
+      "mature": true,
+      "repeat_buyers": 55,
+      "rate": 0.5238095238095238
+    },
+    {
+      "cohort": "2024-03",
+      "buyers": 110,
+      "mature": true,
+      "repeat_buyers": 70,
+      "rate": 0.6363636363636364
+    },
+    {
+      "cohort": "2024-04",
+      "buyers": 115,
+      "mature": true,
+      "repeat_buyers": 56,
+      "rate": 0.48695652173913045
+    },
+    {
+      "cohort": "2024-05",
+      "buyers": 120,
+      "mature": true,
+      "repeat_buyers": 61,
+      "rate": 0.5083333333333333
+    },
+    {
+      "cohort": "2024-06",
+      "buyers": 125,
+      "mature": true,
+      "repeat_buyers": 52,
+      "rate": 0.416
+    },
+    {
+      "cohort": "2024-07",
+      "buyers": 130,
+      "mature": true,
+      "repeat_buyers": 68,
+      "rate": 0.5230769230769231
+    },
+    {
+      "cohort": "2024-08",
+      "buyers": 135,
+      "mature": true,
+      "repeat_buyers": 60,
+      "rate": 0.4444444444444444
+    },
+    {
+      "cohort": "2024-09",
+      "buyers": 140,
+      "mature": true,
+      "repeat_buyers": 84,
+      "rate": 0.6
+    },
+    {
+      "cohort": "2024-10",
+      "buyers": 145,
+      "mature": true,
+      "repeat_buyers": 73,
+      "rate": 0.503448275862069
+    },
+    {
+      "cohort": "2024-11",
+      "buyers": 150,
+      "mature": true,
+      "repeat_buyers": 86,
+      "rate": 0.5733333333333334
+    },
+    {
+      "cohort": "2024-12",
+      "buyers": 155,
+      "mature": true,
+      "repeat_buyers": 69,
+      "rate": 0.44516129032258067
+    },
+    {
+      "cohort": "2025-01",
+      "buyers": 160,
+      "mature": true,
+      "repeat_buyers": 94,
+      "rate": 0.5875
+    },
+    {
+      "cohort": "2025-02",
+      "buyers": 165,
+      "mature": true,
+      "repeat_buyers": 79,
+      "rate": 0.47878787878787876
+    },
+    {
+      "cohort": "2025-03",
+      "buyers": 170,
+      "mature": true,
+      "repeat_buyers": 79,
+      "rate": 0.4647058823529412
+    },
+    {
+      "cohort": "2025-04",
+      "buyers": 175,
+      "mature": true,
+      "repeat_buyers": 99,
+      "rate": 0.5657142857142857
+    },
+    {
+      "cohort": "2025-05",
+      "buyers": 180,
+      "mature": true,
+      "repeat_buyers": 87,
+      "rate": 0.48333333333333334
+    },
+    {
+      "cohort": "2025-06",
+      "buyers": 185,
+      "mature": true,
+      "repeat_buyers": 100,
+      "rate": 0.5405405405405406
+    },
+    {
+      "cohort": "2025-07",
+      "buyers": 190,
+      "mature": true,
+      "repeat_buyers": 109,
+      "rate": 0.5736842105263158
+    },
+    {
+      "cohort": "2025-08",
+      "buyers": 195,
+      "mature": true,
+      "repeat_buyers": 97,
+      "rate": 0.49743589743589745
+    },
+    {
+      "cohort": "2025-09",
+      "buyers": 200,
+      "mature": true,
+      "repeat_buyers": 114,
+      "rate": 0.57
+    },
+    {
+      "cohort": "2025-10",
+      "buyers": 205,
+      "mature": false,
+      "repeat_buyers": null,
+      "rate": null
+    },
+    {
+      "cohort": "2025-11",
+      "buyers": 210,
+      "mature": false,
+      "repeat_buyers": null,
+      "rate": null
+    },
+    {
+      "cohort": "2025-12",
+      "buyers": 215,
+      "mature": false,
+      "repeat_buyers": null,
+      "rate": null
+    }
+  ],
+  "forecast": {
+    "selected": "last_month",
+    "selection": {
+      "last_month": {
+        "wape": 0.07154822498550349,
+        "margin_mae": 1491.3333333333333,
+        "points": [
+          {
+            "month": "2025-01",
+            "actual": 42260.0,
+            "predicted": 40090.0,
+            "margin_actual": 16889.0,
+            "margin_predicted": 15931.0
+          },
+          {
+            "month": "2025-02",
+            "actual": 45340.0,
+            "predicted": 42260.0,
+            "margin_actual": 18026.0,
+            "margin_predicted": 16889.0
+          },
+          {
+            "month": "2025-03",
+            "actual": 49790.0,
+            "predicted": 45340.0,
+            "margin_actual": 20033.0,
+            "margin_predicted": 18026.0
+          },
+          {
+            "month": "2025-04",
+            "actual": 54330.0,
+            "predicted": 49790.0,
+            "margin_actual": 21653.0,
+            "margin_predicted": 20033.0
+          },
+          {
+            "month": "2025-05",
+            "actual": 56400.0,
+            "predicted": 54330.0,
+            "margin_actual": 22536.0,
+            "margin_predicted": 21653.0
+          },
+          {
+            "month": "2025-06",
+            "actual": 62300.0,
+            "predicted": 56400.00000000001,
+            "margin_actual": 24879.0,
+            "margin_predicted": 22536.0
+          }
+        ]
+      },
+      "driver_mean3": {
+        "wape": 0.1460212905927839,
+        "margin_mae": 3042.074749515325,
+        "points": [
+          {
+            "month": "2025-01",
+            "actual": 42260.0,
+            "predicted": 35227.10592231797,
+            "margin_actual": 16889.0,
+            "margin_predicted": 14003.097977989435
+          },
+          {
+            "month": "2025-02",
+            "actual": 45340.0,
+            "predicted": 38177.027205941326,
+            "margin_actual": 18026.0,
+            "margin_predicted": 15181.174164406952
+          },
+          {
+            "month": "2025-03",
+            "actual": 49790.0,
+            "predicted": 42582.38445781858,
+            "margin_actual": 20033.0,
+            "margin_predicted": 16956.499581622014
+          },
+          {
+            "month": "2025-04",
+            "actual": 54330.0,
+            "predicted": 45789.624290844054,
+            "margin_actual": 21653.0,
+            "margin_predicted": 18310.649483769175
+          },
+          {
+            "month": "2025-05",
+            "actual": 56400.0,
+            "predicted": 49803.67922232678,
+            "margin_actual": 22536.0,
+            "margin_predicted": 19897.74174151107
+          },
+          {
+            "month": "2025-06",
+            "actual": 62300.0,
+            "predicted": 53512.24987493931,
+            "margin_actual": 24879.0,
+            "margin_predicted": 21414.388553609406
+          }
+        ]
+      },
+      "seasonal_naive": {
+        "wape": 0.7177533664068037,
+        "margin_mae": 14872.5,
+        "points": [
+          {
+            "month": "2025-01",
+            "actual": 42260.0,
+            "predicted": 7630.0,
+            "margin_actual": 16889.0,
+            "margin_predicted": 2979.0
+          },
+          {
+            "month": "2025-02",
+            "actual": 45340.0,
+            "predicted": 11405.0,
+            "margin_actual": 18026.0,
+            "margin_predicted": 4551.0
+          },
+          {
+            "month": "2025-03",
+            "actual": 49790.0,
+            "predicted": 13970.0,
+            "margin_actual": 20033.0,
+            "margin_predicted": 5559.0
+          },
+          {
+            "month": "2025-04",
+            "actual": 54330.0,
+            "predicted": 16110.0,
+            "margin_actual": 21653.0,
+            "margin_predicted": 6340.0
+          },
+          {
+            "month": "2025-05",
+            "actual": 56400.0,
+            "predicted": 18555.0,
+            "margin_actual": 22536.0,
+            "margin_predicted": 7395.0
+          },
+          {
+            "month": "2025-06",
+            "actual": 62300.0,
+            "predicted": 19945.0,
+            "margin_actual": 24879.0,
+            "margin_predicted": 7957.0
+          }
+        ]
+      }
+    },
+    "holdout": {
+      "last_month": {
+        "wape": 0.07565865692594961,
+        "margin_mae": 2556.3333333333326,
+        "points": [
+          {
+            "month": "2025-07",
+            "actual": 52775.0,
+            "predicted": 62299.99999999999,
+            "margin_actual": 14923.0,
+            "margin_predicted": 24879.0
+          },
+          {
+            "month": "2025-08",
+            "actual": 53990.0,
+            "predicted": 52775.0,
+            "margin_actual": 15190.0,
+            "margin_predicted": 14922.999999999998
+          },
+          {
+            "month": "2025-09",
+            "actual": 59665.0,
+            "predicted": 53990.0,
+            "margin_actual": 16621.0,
+            "margin_predicted": 15190.000000000002
+          },
+          {
+            "month": "2025-10",
+            "actual": 64690.0,
+            "predicted": 59665.00000000001,
+            "margin_actual": 18514.0,
+            "margin_predicted": 16621.000000000004
+          },
+          {
+            "month": "2025-11",
+            "actual": 64720.0,
+            "predicted": 64690.0,
+            "margin_actual": 18116.0,
+            "margin_predicted": 18514.0
+          },
+          {
+            "month": "2025-12",
+            "actual": 71005.0,
+            "predicted": 64720.0,
+            "margin_actual": 19509.0,
+            "margin_predicted": 18116.0
+          }
+        ]
+      },
+      "driver_mean3": {
+        "wape": 0.09261649742815614,
+        "margin_mae": 3642.281061416119,
+        "points": [
+          {
+            "month": "2025-07",
+            "actual": 52775.0,
+            "predicted": 57661.68816901527,
+            "margin_actual": 14923.0,
+            "margin_predicted": 23016.047720164726
+          },
+          {
+            "month": "2025-08",
+            "actual": 53990.0,
+            "predicted": 57448.86667450181,
+            "margin_actual": 15190.0,
+            "margin_predicted": 21018.992995939865
+          },
+          {
+            "month": "2025-09",
+            "actual": 59665.0,
+            "predicted": 56561.704874159615,
+            "margin_actual": 16621.0,
+            "margin_predicted": 18496.948062132196
+          },
+          {
+            "month": "2025-10",
+            "actual": 64690.0,
+            "predicted": 55475.42753974273,
+            "margin_actual": 18514.0,
+            "margin_predicted": 15583.340711617995
+          },
+          {
+            "month": "2025-11",
+            "actual": 64720.0,
+            "predicted": 59387.16689804015,
+            "margin_actual": 18116.0,
+            "margin_predicted": 16751.74499193373
+          },
+          {
+            "month": "2025-12",
+            "actual": 71005.0,
+            "predicted": 63025.35653254265,
+            "margin_actual": 19509.0,
+            "margin_predicted": 17748.21670618835
+          }
+        ]
+      },
+      "seasonal_naive": {
+        "wape": 0.48643159917676404,
+        "margin_mae": 4636.666666666667,
+        "points": [
+          {
+            "month": "2025-07",
+            "actual": 52775.0,
+            "predicted": 24805.0,
+            "margin_actual": 14923.0,
+            "margin_predicted": 9855.0
+          },
+          {
+            "month": "2025-08",
+            "actual": 53990.0,
+            "predicted": 27620.0,
+            "margin_actual": 15190.0,
+            "margin_predicted": 11089.0
+          },
+          {
+            "month": "2025-09",
+            "actual": 59665.0,
+            "predicted": 30200.0,
+            "margin_actual": 16621.0,
+            "margin_predicted": 12064.0
+          },
+          {
+            "month": "2025-10",
+            "actual": 64690.0,
+            "predicted": 33215.0,
+            "margin_actual": 18514.0,
+            "margin_predicted": 13260.0
+          },
+          {
+            "month": "2025-11",
+            "actual": 64720.0,
+            "predicted": 32470.0,
+            "margin_actual": 18116.0,
+            "margin_predicted": 12854.0
+          },
+          {
+            "month": "2025-12",
+            "actual": 71005.0,
+            "predicted": 40090.0,
+            "margin_actual": 19509.0,
+            "margin_predicted": 15931.0
+          }
+        ]
+      }
+    },
+    "next_month": {
+      "revenue": 71005.0,
+      "margin": 19509.0,
+      "buyers": 1048,
+      "frequency": 1.1259541984732824,
+      "aov": 60.17372881355932,
+      "margin_per_order": 16.533050847457627
+    },
+    "scenario_basis": "Trailing-three-month driver baseline, not necessarily selected forecast. Demand +/-10%, AOV +/-5%, fixed unit variable cost; not prediction intervals.",
+    "scenarios": [
+      {
+        "name": "downside",
+        "revenue": 57192.20542766957,
+        "margin": 13869.28207080222
+      },
+      {
+        "name": "base",
+        "revenue": 66891.46833645564,
+        "margin": 18754.88682882525
+      },
+      {
+        "name": "upside",
+        "revenue": 77259.64592860627,
+        "margin": 24309.406270212836
+      }
+    ]
+  },
+  "input_sha256": "bf5a54c94e91dabe0fd17c8e5f1462fadce37cd24c200396a99e376680de8a94",
+  "reconciliation": "SQL revenue and contribution margin reconciled to Python integer-cent totals"
+}

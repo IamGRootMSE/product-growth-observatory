@@ -13,6 +13,9 @@ jobs:
           cache: pip
       - run: pip install -r requirements-dev.txt
       - run: python -m unittest discover -s tests -v
+      - run: python -m observatory.finance --output work/finance-check
+      - run: python scripts/check_snapshot.py outputs/finance/results.json work/finance-check/results.json
+      - run: cp work/finance-check/* outputs/finance/
       - run: python -m observatory.pipeline --fixture
       - run: python scripts/write_summary.py
       - run: git diff --exit-code -- site/data.json
@@ -20,6 +23,7 @@ jobs:
       - run: python scripts/build.py
       - run: python -m playwright install --with-deps chromium
       - run: python scripts/browser_test.py
+      - run: python scripts/check_finance_report.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
